@@ -122,4 +122,6 @@ const TuseContainer = (props) => {
 
 export default TuseContainer
 
+onClick={() =>{setSymbol(stock.symbol)} }
+
 ```

@@ -4,16 +4,25 @@ import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStock } from "react-icons/ai";
 import Navbar from "./Navbar";
+import TuseContainer from "./TuseContainer";
 
-const Order = (props) => {
+const Order = () => {
 
     const navigate = useNavigate()
+    const [showContainer] = useState(false)
 
     const [order, setOrder] = useState({
-            symbol: props.symbol,
+            symbol: "",
             buyingPrice: 0,
             quantity: 0
     })
+
+    const getSymbol = (symbol) => {
+        setOrder({
+            ...Order,
+            symbol: symbol
+        })
+    }
 
 
     const handleSubmit = async (e) => {
@@ -35,6 +44,7 @@ const Order = (props) => {
 
     return(
         <>  
+            {showContainer ? <TuseContainer getSymbol = {getSymbol} /> : ""}
             <div onClick = {() => navigate("/")}>
                 <Header />
                 <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock/>}</h1>

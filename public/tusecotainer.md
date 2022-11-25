@@ -1,3 +1,5 @@
+```js
+
 import React, { useState, useEffect} from "react";
 import { TuseClient } from "../tuseClient/TuseClient";
 import StockBySymbols from "./StockBySymbols";
@@ -6,11 +8,11 @@ import StocksLowerThan from "./StocksLowerThan";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
+import Order from "./Order";
 
-const TuseContainer = (pops) => {
+const TuseContainer = () => {
 
     const [stockList, setStockList] = useState([])
-    const [symbol, setSymbol] = useState("")
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -32,7 +34,7 @@ const TuseContainer = (pops) => {
 
     const getStockBySymbol = async (symbol) => {
         try {
-            const result = await TuseClient.get(`stock/symbol/${symbol}`)
+            const result = await TuseClient.get(`stock/greaterThan/${symbol}`)
             setStockList(result.data)
         } catch (error) {
             console.log(error)
@@ -89,14 +91,14 @@ const TuseContainer = (pops) => {
                                 <td><button
                                  className="tableButton"
                                  onClick={() =>{
-                                    {navigate("/order")}
-                                    {pops.getSymbol(stock.symbol)}
+                                    {<Order symbol = {stock.symbol}/>}
+                                    console.log(stock.symbol, "check point 1")
+                                    navigate("/order")
                                  }}
-                                 
                                  >Buy</button>
                                  </td>
                             </tr>
-                            )
+                        )
                     }
                 </tbody>
             </table>
@@ -105,3 +107,5 @@ const TuseContainer = (pops) => {
 }
 
 export default TuseContainer
+
+```

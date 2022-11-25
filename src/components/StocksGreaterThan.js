@@ -26,7 +26,7 @@ const StocksGreaterThan = (props) => {
             >
             <input
                 type="text"
-                placeholder="Filter by higher price"
+                placeholder="Filter by max price (e.g: 150)"
                 value={price}
                 onChange={onChange}
                 className="inputClass"

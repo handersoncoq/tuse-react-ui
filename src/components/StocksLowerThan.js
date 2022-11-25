@@ -26,7 +26,7 @@ const StocksLowerThan = (props) => {
             >
             <input
                 type="text"
-                placeholder="Filter by lower price"
+                placeholder="Filter by min price (e.g: 10)"
                 value={price}
                 onChange={onChange}
                 className="inputClass"

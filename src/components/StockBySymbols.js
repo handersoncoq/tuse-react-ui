@@ -26,7 +26,7 @@ const StockBySymbols = (props) => {
             >
             <input
                 type="text"
-                placeholder="Search a ticker. Ex: AAPL"
+                placeholder="Search a ticker (e.g: aapl)"
                 value={symbol}
                 onChange={onChange}
                 className="inputClass"

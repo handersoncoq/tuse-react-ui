@@ -6,6 +6,7 @@ import TuseContainer from './components/TuseContainer';
 import Order from './components/Order';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <Router>
