@@ -25,8 +25,8 @@ const StocksGreaterThan = (props) => {
             className = "form-container-greaterPrice"
             >
             <input
-                type="text"
-                placeholder="Filter by max price (e.g: 150)"
+                type="number"
+                placeholder="Search by price (Min)"
                 value={price}
                 onChange={onChange}
                 className="inputClass"

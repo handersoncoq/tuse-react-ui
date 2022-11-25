@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 const TuseContainer = (pops) => {
 
     const [stockList, setStockList] = useState([])
-    const [symbol, setSymbol] = useState("")
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -84,13 +83,13 @@ const TuseContainer = (pops) => {
                             <tr key={stock.stockId}>
                                 <td>{stock.company}</td>
                                 <td>{stock.symbol}</td>
-                                <td>{'$'+' '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
-                                <td>{'$'+' '+ Math.round((stock.marketCap + Number.EPSILON) * 100) / 100}</td>
+                                <td>{'$ '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
+                                <td>{'$ '+ Math.round((stock.marketCap + Number.EPSILON) * 100) / 100}</td>
                                 <td><button
                                  className="tableButton"
                                  onClick={() =>{
-                                    {navigate("/order")}
-                                    {pops.getSymbol(stock.symbol)}
+                                    localStorage.setItem("stockSymbol", stock.symbol);
+                                    navigate("/order");
                                  }}
                                  
                                  >Buy</button>

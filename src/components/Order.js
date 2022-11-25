@@ -4,25 +4,18 @@ import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStock } from "react-icons/ai";
 import Navbar from "./Navbar";
-import TuseContainer from "./TuseContainer";
 
 const Order = () => {
 
     const navigate = useNavigate()
-    const [showContainer] = useState(false)
+
+    let clickedStockSymbol = localStorage.getItem("stockSymbol")
 
     const [order, setOrder] = useState({
-            symbol: "",
+            symbol: clickedStockSymbol,
             buyingPrice: 0,
             quantity: 0
     })
-
-    const getSymbol = (symbol) => {
-        setOrder({
-            ...Order,
-            symbol: symbol
-        })
-    }
 
 
     const handleSubmit = async (e) => {
@@ -44,8 +37,11 @@ const Order = () => {
 
     return(
         <>  
-            {showContainer ? <TuseContainer getSymbol = {getSymbol} /> : ""}
-            <div onClick = {() => navigate("/")}>
+            <div onClick = {() => {
+                    localStorage.clear();
+                    navigate("/");
+                    }
+                    }>
                 <Header />
                 <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock/>}</h1>
             </div>
@@ -55,20 +51,20 @@ const Order = () => {
                         <label>Number of Stocks</label>
                         <input
                         className="orderInput"
-                        type="text"
+                        type="number"
                         placeholder="i.e: 100"
                         value={order.quantity}
-                        onChange={(event) => setOrder({ ...order, quantity: event.target.value })}
+                        onChange={(event) => setOrder({ ...order, quantity: event.target.valueAsNumber })}
                         />
                     </div>
                     <div className="div">
                         <label>Buying Price</label>
                         <input
                         className="orderInput"
-                        type="text"
+                        type="number"
                         placeholder="i.e: 12.5"
                         value={order.buyingPrice}
-                        onChange={(event) => setOrder({ ...order, buyingPrice: event.target.value })}
+                        onChange={(event) => setOrder({ ...order, buyingPrice: event.target.valueAsNumber })}
                         />
                     </div>
                     <div>
