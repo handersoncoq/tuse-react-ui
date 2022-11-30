@@ -17,7 +17,6 @@ const Order = () => {
             quantity: 0
     })
 
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(!order.buyingPrice || !order.quantity){
@@ -38,17 +37,22 @@ const Order = () => {
     return(
         <>  
             <div onClick = {() => {
-                    localStorage.clear();
+                    localStorage.removeItem("stockSymbol");
                     navigate("/");
                     }
                     }>
                 <Header />
-                <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock/>}</h1>
+                
             </div>
+            <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
+            <span className="orderSpan">
+                <span style={{color: "darkcyan"}}> Now Buying : </span>
+                <span style={{color: "darkred"}}> {order.symbol} </span>
+            </span>
             <Navbar />
                 <form className="orderInput">
                     <div className="div">
-                        <label>Number of Stocks</label>
+                        <label>Number of Shares</label>
                         <input
                         className="orderInput"
                         type="number"
