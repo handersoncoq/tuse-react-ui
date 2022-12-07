@@ -7,15 +7,20 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
-const TuseContainer = (pops) => {
+const TuseContainer = () => {
 
     const [stockList, setStockList] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=>{
         const fetchData = async () => {
-            const result = await TuseClient.get("stock/all")
-            setStockList(result.data)
+            try {
+                const result = await TuseClient.get("stock/all")
+                setStockList(result.data)
+            } catch (error) {
+                console.log(error)
+            }
+            
         }
         fetchData()
     }, [setStockList])
@@ -78,7 +83,7 @@ const TuseContainer = (pops) => {
                 </thead>
 
                 <tbody>
-                    {
+                    { 
                         stockList.map( stock => 
                             <tr key={stock.stockId}>
                                 <td>{stock.company}</td>

@@ -51,11 +51,11 @@ const Navbar = () => {
                 {links.map(link =>{
                     return (
                         <li key={link.id}>
-                            <NavLink 
+                            <NavLink
+                            className="active-link"
                             to={link.path} 
-                            activeClassName = "active-link"
                             onClick={() => closeMenu()}
-                            exact>
+                            >
                                 {link.text}
                             </NavLink>
                         </li>

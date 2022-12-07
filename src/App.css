@@ -142,8 +142,11 @@ body {
 }
 
 .active-link {
-  color: darkcyan;
-  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--c-white);
 }
 
 .navBar {
