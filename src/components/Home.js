@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
-import { TuseClient } from "../tuseClient/TuseClient";
-import StockBySymbols from "./StockBySymbols";
-import StocksGreaterThan from "./StocksGreaterThan";
-import StocksLowerThan from "./StocksLowerThan";
+import { TuseClient } from "../tuse-client/TuseClient";
+import StockBySymbols from "./filter-functions/StockBySymbols";
+import StocksGreaterThan from "./filter-functions/StocksGreaterThan";
+import StocksLowerThan from "./filter-functions/StocksLowerThan";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
@@ -94,7 +94,7 @@ const Home = () => {
                                  className="tableButton"
                                  onClick={() =>{
                                     localStorage.setItem("stockSymbol", stock.symbol);
-                                    navigate("/order");
+                                    navigate("/trade");
                                  }}
                                  
                                  >Buy</button>

@@ -20,11 +20,10 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing:content-box;
   margin: 0;
   padding: 0;
   position: relative;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -33,20 +32,26 @@ body {
   color: white;
   background: rgb(10, 11, 19);
   height: 100vh;
-  overflow-y: scroll;
-  /* position: absolute; */
+  overflow-x:hidden;
 }
 
 .frontHeader {
-  padding: 48px;
+  height: 97px;
   line-height: 1.5em;
   box-shadow: 0 1px 6px 0 rgb(18, 28, 47);
   background-image: url("../public/stockData-image.png");
   background-repeat: no-repeat;
   background-size:cover;
-  scroll-behavior: smooth;
-  position: relative;
-  cursor:pointer;
+  cursor:pointer; 
+  object-fit: cover;
+}
+
+#header {
+  position: fixed;
+}
+
+#content {
+  margin-top: 100px;
 }
 
 .container {
@@ -166,7 +171,6 @@ a:hover {
 }
 
 .menuNav {
-  overflow-y: scroll;
   list-style: none;
   position: fixed;
   top: 0;
@@ -206,7 +210,7 @@ a {
 }
 
 .menuNav li:first-child {
-  margin-top: 7rem;
+  margin-top: 8rem;
 }
 
 .username{
@@ -251,7 +255,7 @@ th {
 
 .orderSpan{
   padding: 8px;
-  height: 40px;
+  height: 25px;
   text-align: center;
   justify-content: center;
   margin-left: auto;
@@ -262,7 +266,7 @@ th {
 
 .globalSpan{
   padding: 8px;
-  height: 40px;
+  height: 30px;
   text-align: center;
   justify-content: center;
   margin-left: auto;
@@ -296,17 +300,15 @@ span:after {
   text-align: center;
   text-align: center;
   justify-content: center;
-  margin: auto;
-  margin-left: auto;
+  margin-left:auto;
   background: transparent;
   color: white;
-  width: 95%;
 }
 
 .orderButton {
   background-color: #034545;
   color: white;
-  padding: 12px 145px;
+  padding: 12px 150px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -318,10 +320,10 @@ span:after {
 
 .orderH1 {
   color: white;
+  position: relative;
   width: 100%;
   margin-left: 320px;
   margin-top: -45px;
-  position: fixed;
 }
 
 .formButton {

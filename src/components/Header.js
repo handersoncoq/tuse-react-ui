@@ -15,12 +15,11 @@ const Header = (pops) => {
                     textShadow: "0 0 3px #fff, 0 0 4px #fff",
                     color: "#fff",
                     cursor: "pointer",
-                    fontWeight: "450"
+                    fontWeight: "450"                    
                     }}>
                     TU$E
                 </h1>
             </div>
-        
         </>
     )
 }

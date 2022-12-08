@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { MdClose } from "react-icons/md"
 import { FiMenu } from "react-icons/fi";
 import { BsPersonCircle } from "react-icons/bs";
-import SignOut from "./SignOut";
+import SignOut from "./auth-service/SignOut";
 
 
 const Navbar = () => {
@@ -51,8 +51,8 @@ const Navbar = () => {
             },
             {
                 id: 2,
-                path: "/account",
-                text: "Account"
+                path: "/dashboard",
+                text: "Dashboard"
             },
             {
                 id: 3,
