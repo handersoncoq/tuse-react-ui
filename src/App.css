@@ -147,6 +147,7 @@ body {
 
 a:hover {
   color: var(--c-white);
+  text-decoration: underline;
 }
 
 .navBar {
@@ -195,16 +196,24 @@ a:hover {
 /* change text display (even on the navbar) */
 
 a {
-  display: block;
-  padding: 10px 40px;
+  display:flex;
+  padding: 7px 20px;
   text-decoration: none;
   color: rgb(10, 11, 19);
   text-transform: uppercase;
   font-weight: bold;
+  justify-content: center
 }
 
 .menuNav li:first-child {
   margin-top: 7rem;
+}
+
+.username{
+  color: var(--c-white);
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
 }
 
 /* table */
@@ -241,6 +250,17 @@ th {
 /* order */
 
 .orderSpan{
+  padding: 8px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-top: 40px;
+  display: flex;
+  background-color: rgb(15, 16, 26);
+}
+
+.globalSpan{
   padding: 8px;
   height: 40px;
   text-align: center;
@@ -302,6 +322,20 @@ span:after {
   margin-left: 320px;
   margin-top: -45px;
   position: fixed;
+}
+
+.formButton {
+  background-color: #034545;
+  color: white;
+  padding: 12px 137px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width:fit-content;
+  justify-content: center;
+  align-content: space-around;
+  overflow: auto;
+  margin-left: 344px;
 }
 
 /* 

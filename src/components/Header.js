@@ -8,9 +8,7 @@ const Header = (pops) => {
         <>
             <header className="frontHeader">
             </header>
-            <div
-                
-            >
+            <div>
                 <h1 onClick={pops.resetStockList} style={{
                     marginLeft: "238px", 
                     marginTop: "1.7%", 
@@ -22,6 +20,7 @@ const Header = (pops) => {
                     TU$E
                 </h1>
             </div>
+        
         </>
     )
 }

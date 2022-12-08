@@ -7,7 +7,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
-const TuseContainer = () => {
+const Home = () => {
 
     const [stockList, setStockList] = useState([])
     const navigate = useNavigate()
@@ -108,4 +108,4 @@ const TuseContainer = () => {
     )
 }
 
-export default TuseContainer
+export default Home
