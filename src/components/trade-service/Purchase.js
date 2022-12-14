@@ -17,14 +17,12 @@ const Purchase = () => {
         if(!purchase.buyingPrice || !purchase.quantity){
             alert("Please fill out fields")  
         } else{
-            console.log(purchase)
             try {
-                const result = await TuseClient.post("order", purchase)
-                console.log(result)
-                alert(`Your purchase of the stock ${purchase.symbol} was successful`)
+                const result = await TuseClient.post("purchase", purchase)
+                alert(`${result.data}`)
             } catch (error) {
                 console.log(error)
-                alert(`Your purchase of the stock ${purchase.symbol} was unsuccessful`)
+                alert(`Purchase was unsuccessful`)
             }
         }
     }

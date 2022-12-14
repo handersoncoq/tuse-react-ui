@@ -109,7 +109,7 @@ body {
 
 .inputClass{
   background: rgb(15, 16, 26);
-  color: rgb(95, 93, 93);
+  color: var(--c-white);
   width: 80%;
   border: #3fffd2;
   border-radius: 5px;
@@ -152,7 +152,6 @@ body {
 
 a:hover {
   color: var(--c-white);
-  text-decoration: underline;
 }
 
 .navBar {
@@ -206,7 +205,8 @@ a {
   color: rgb(10, 11, 19);
   text-transform: uppercase;
   font-weight: bold;
-  justify-content: center
+  justify-content:flex-start;
+  margin-left: 12px;
 }
 
 .menuNav li:first-child {
@@ -241,14 +241,14 @@ tr:nth-child(even){
 th {
   background-color: #034545;
   color: rgb(10, 11, 19);
-  justify-content: center; 
+  justify-content: center;
 }
 
 .tableButton {
   justify-content: center; 
   cursor: pointer;
-  margin-left: 13px;
-  width: 30px;
+  margin-left: 0px;
+  width: 50px;
 }
 
 /* order */

@@ -5,11 +5,13 @@ import StocksGreaterThan from "./filter-functions/StocksGreaterThan";
 import StocksLowerThan from "./filter-functions/StocksLowerThan";
 import Header from "./Header";
 import Navbar from "./Navbar";
+import {FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
     const [stockList, setStockList] = useState([])
+
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -77,7 +79,7 @@ const Home = () => {
                         <th align="center"> Company </th>
                         <th align="center"> Symbol </th>
                         <th align="center"> Price </th>
-                        <th align="center"> Market Cap </th>
+                        <th align="center"> Trend </th>
                         <th align="center"> Option </th>
                     </tr>
                 </thead>
@@ -89,7 +91,7 @@ const Home = () => {
                                 <td>{stock.company}</td>
                                 <td>{stock.symbol}</td>
                                 <td>{'$ '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
-                                <td>{'$ '+ Math.round((stock.marketCap + Number.EPSILON) * 100) / 100}</td>
+                                <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "12px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
                                 <td><button
                                  className="tableButton"
                                  onClick={() =>{
@@ -97,7 +99,7 @@ const Home = () => {
                                     navigate("/trade");
                                  }}
                                  
-                                 >Buy</button>
+                                 >Buy/Sell</button>
                                  </td>
                             </tr>
                             )

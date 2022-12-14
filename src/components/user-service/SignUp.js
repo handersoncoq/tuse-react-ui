@@ -56,7 +56,7 @@ const SignUp = () =>{
                         <label>Password</label>
                         <input
                         className="orderInput"
-                        type="text"
+                        type="password"
                         placeholder="strongPass123"
                         value={user.password}
                         onChange={(event) => setUser({ ...user, password: event.target.value })}

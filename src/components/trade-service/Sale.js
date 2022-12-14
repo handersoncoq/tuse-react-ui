@@ -19,12 +19,12 @@ const Sale = () => {
         } else{
             console.log(sale)
             try {
-                const result = await TuseClient.post("order", sale)
+                const result = await TuseClient.post("sale", sale)
                 console.log(result)
-                alert(`Your sale of the stock ${sale.symbol} was successful`)
+                alert(`${result.data}`)
             } catch (error) {
                 console.log(error)
-                alert(`Your sale of the stock ${sale.symbol} was unsuccessful`)
+                alert(`Sale was unsuccessful`)
             }
         }
     }
