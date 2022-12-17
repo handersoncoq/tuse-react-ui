@@ -19,39 +19,35 @@
 	--c-text-tertiary: var(--c-gray-500);
 }
 
-* {
-  box-sizing:content-box;
-  margin: 0;
-  padding: 0;
-  position: relative;
+/* toast */
+.success-message{
+  background-color: #034545;
 }
+
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.4;
   color: white;
   background: rgb(10, 11, 19);
-  height: 100vh;
   overflow-x:hidden;
 }
 
-.frontHeader {
-  height: 97px;
-  line-height: 1.5em;
-  box-shadow: 0 1px 6px 0 rgb(18, 28, 47);
-  background-image: url("../public/stockData-image.png");
-  background-repeat: no-repeat;
-  background-size:cover;
-  cursor:pointer; 
-  object-fit: cover;
-}
-
-#header {
+.header {
+  background-color: #034545;
+  height: 120px;
   position: fixed;
+  padding: 10px 0px;
+  margin-top: -22.5px;
+  width: 100%;
 }
 
-#content {
-  margin-top: 100px;
+.start {
+  height: 120px;
+}
+
+.end {
+  height: 500px;
 }
 
 .container {
@@ -71,7 +67,7 @@ body {
 .form-container-symbol {
   width: 20%;
   margin-left: 332px;
-  margin-top: -35px;
+  margin-top: 3px;
   margin-bottom: 7px;
   display: flex;
   justify-content: space-evenly;
@@ -79,12 +75,13 @@ body {
   border: solid;
   border-radius: 5px;
   border-width: 1px;
+  position: fixed;
 }
 
 .form-container-lowerPrice {
   width: 20%;
   margin-left: 575px;
-  margin-top: -35px;
+  margin-top: 2px;
   margin-bottom: 7px;
   display: flex;
   justify-content: space-evenly;
@@ -92,12 +89,13 @@ body {
   border: solid;
   border-radius: 5px;
   border-width: 1px;
+  position: fixed;
 }
 
 .form-container-greaterPrice {
   width: 20%;
   margin-left: 817px;
-  margin-top: -35px;
+  margin-top: 2px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-evenly;
@@ -105,6 +103,7 @@ body {
   border: solid;
   border-radius: 5px;
   border-width: 1px;
+  position: fixed;
 }
 
 .inputClass{
@@ -155,7 +154,7 @@ a:hover {
 }
 
 .navBar {
-  position: relative;
+  position: fixed;
 }
 
 .navBar button {
@@ -172,7 +171,7 @@ a:hover {
 .menuNav {
   list-style: none;
   position: fixed;
-  top: 0;
+  top: -8px;
   background: #034545;
   left: 0;
   bottom: 0;
@@ -180,12 +179,11 @@ a:hover {
   width: 0;
   overflow: hidden;
   max-width: 290px;
-  z-index: 9;
+  margin-left: -40px;
 }
 
 .menuNav.showMenu {
-  margin-top: 9.5%;
-  width: 17%;
+  width: 18%;
 }
 
 .order-form {
@@ -244,24 +242,27 @@ th {
   justify-content: center;
 }
 
+tbody{
+  overflow-y: scroll;
+  height: 40px;
+}
+
 .tableButton {
   justify-content: center; 
   cursor: pointer;
-  margin-left: 0px;
-  width: 50px;
 }
 
 /* order */
 
-.orderSpan{
-  padding: 8px;
-  height: 25px;
+.orderDiv{
+  padding:  8px;
+  height: 15px;
   text-align: center;
   justify-content: center;
   margin-left: auto;
-  margin-top: 40px;
   display: flex;
-  background-color: rgb(15, 16, 26);
+  margin-top: 90px;
+  position: sticky;
 }
 
 .globalSpan{
@@ -273,6 +274,17 @@ th {
   margin-top: 40px;
   display: flex;
   background-color: rgb(15, 16, 26);
+}
+
+.customSpan{
+  padding: 8px;
+  height: 30px;
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-top: 120px;
+  display: flex;
+  background-color: white;
 }
 
 span::before,
@@ -305,10 +317,20 @@ span:after {
   color: white;
 }
 
+.formInput {
+  text-align: center;
+  text-align: center;
+  justify-content: center;
+  margin-left:auto;
+  background: transparent;
+  color: white;
+  margin-top: -20px;
+}
+
 .orderButton {
   background-color: #034545;
   color: white;
-  padding: 12px 150px;
+  padding: 12px 154px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -320,10 +342,20 @@ span:after {
 
 .orderH1 {
   color: white;
-  position: relative;
   width: 100%;
   margin-left: 320px;
-  margin-top: -45px;
+  margin-top: -150px;
+  position: fixed; 
+  background-color:  rgb(10, 11, 19);
+}
+
+.Sign {
+  color: white;
+  width: 100%;
+  margin-left: 320px;
+  margin-top: 100px;
+  position: fixed; 
+  background-color:  rgb(10, 11, 19);
 }
 
 .formButton {

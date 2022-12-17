@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { MdClose } from "react-icons/md"
-import { FiMenu } from "react-icons/fi";
+// import { MdClose } from "react-icons/md"
+// import { FiMenu } from "react-icons/fi";
 import { BsPersonCircle, BsFillPersonFill } from "react-icons/bs";
 import { RiHome7Fill } from "react-icons/ri";
 import { SiGnuprivacyguard } from "react-icons/si";
@@ -10,6 +10,8 @@ import { FcAbout } from "react-icons/fc";
 import { MdDashboardCustomize } from "react-icons/md";
 import SignOut from "./auth-service/SignOut";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
 
@@ -18,9 +20,9 @@ const Navbar = () => {
     const navigate = useNavigate();
     let links = [];
 
-    const handleToggle = () => {
-        setNavbarOpen(prev => !prev)
-    }
+    // const handleToggle = () => {
+    //     setNavbarOpen(prev => !prev)
+    // }
 
     const closeMenu = () => {
         setNavbarOpen(false)
@@ -83,14 +85,8 @@ const Navbar = () => {
 
     return(
         <nav className="navBar">
-            <button onClick={handleToggle}>
-                {navbarOpen ? (
-                <MdClose style={{ color: "white", width: "30px", height: "18px", marginTop: "-15px", marginLeft:"40px", display: "flex" }} />
-                ) : (
-                <FiMenu style={{ color: "#008b8b", width: "30px", height: "40px", marginLeft: "55px" }} />
-                )}
-            </button>
-            <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
+            
+            <ul className={`menuNav ${navbarOpen ? " showMenu" : "showMenu"}`}>
             <span>
                {username ? <BsPersonCircle onClick = {() =>navigate("/account")} style={{ color: "rgb(10, 11, 19)", height: "120px", marginTop: "20px", width: "25%", marginLeft:"65px", cursor: "pointer" }}/>
                 : <hr style={{width:"70%", size:"20", marginLeft:"25px", marginTop: "60px" }}/>}
@@ -106,15 +102,38 @@ const Navbar = () => {
                                 to={link.path}
                                 onClick={() => closeMenu()}
                                 >
-                                <span style = {{color: "darkred", justifyContent: "space-around"}}>{link.icon}</span>
-                                {link.text}
+                                <span style = {{
+                                color: "darkred",
+                                width:"25px", 
+                                height: "23px", 
+                                borderRadius: "50%",
+                                backgroundColor: "rgba(0,0,0,.5)",
+                                paddingTop: "2px"
+                                }}>
+                                {link.icon}
+                                </span>
+                                    <span>{link.text}</span>
                                 </NavLink>
                             </li>
                             )
                     })}
-                    {username ? <span>< SignOut /></span> :
+                    {username ? <span onClick={()=> {toast.info("You've successfully signed out!")}
+                    }
+                    >< SignOut /></span> :
                     <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "60px" }}></hr>}
                 </div>
+                <ToastContainer 
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
             </ul>
         </nav>
     )

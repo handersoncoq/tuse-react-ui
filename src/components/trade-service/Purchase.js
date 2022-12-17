@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { TuseClient } from "../../tuse-client/TuseClient";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Purchase = () => {
@@ -15,14 +17,14 @@ const Purchase = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(!purchase.buyingPrice || !purchase.quantity){
-            alert("Please fill out fields")  
+            toast.error("Please fill out all fields")  
         } else{
             try {
                 const result = await TuseClient.post("purchase", purchase)
-                alert(`${result.data}`)
+                toast.info(`${result.data}`)
             } catch (error) {
                 console.log(error)
-                alert(`Purchase was unsuccessful`)
+                toast.error(`Purchase was unsuccessful`)
             }
         }
     }
@@ -52,6 +54,18 @@ const Purchase = () => {
                 <div>
                     <button className="orderButton" onClick={handleSubmit}>Submit</button>
                 </div>
+                <ToastContainer 
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
             </form>
         </>
     )

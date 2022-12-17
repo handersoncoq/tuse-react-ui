@@ -14,32 +14,48 @@ const Trade = () => {
 
     return(
         <>  
-            <div onClick = {() => {
-                localStorage.removeItem("stockSymbol");
-                navigate("/");}}>
-                <Header />
+            <div style={{marginTop: "30.1px"}}
+                    onClick = {() => {
+                    localStorage.removeItem("stockSymbol");
+                    navigate("/");}}
+                >
+                <Header/>
+                <div style={{height: "20px"}}></div>
             </div>
-            <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
-            <span className="orderSpan">
-                <span style={{color: "darkcyan"}}> Now Trading : </span>
-                <span style={{color: "darkred"}}> {symbol} </span>
-            </span>
-            <Navbar />
+            
             <div>
-            <span className="globalSpan">
-                <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Purchase </span>
-            </span>
+
+            <div  className="orderH1">
+                    <h1 > - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
             </div>
-            <div style={{marginTop: "-40px"}}>
-                <Purchase />
+            <div style={{justifyContent: "center", marginTop: "-60px",
+                                backgroundColor: "white",
+                                width: "100%",
+                                display: "flex",
+                                position: "fixed"}}>
+                        <span style={{color: "rgb(10, 11, 19)"}}> Now Trading : </span>
+                        <span style={{color: "red"}}> {symbol} </span>
             </div>
-            <div style={{marginTop: "180px"}}>
-            <span className="globalSpan">
-                <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Sale </span>
-            </span>
-            </div>
-            <div style={{marginTop: "-40px"}}>
-                <Sale />
+            <Navbar />
+
+                <div style={{marginTop: "250px"}}>
+                    <span className="globalSpan">
+                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Purchase </span>
+                    </span>
+                </div>
+
+                <div style={{marginTop: "-40px"}}>
+                    <Purchase />
+                </div>
+
+                <div style={{marginTop: "180px"}}>
+                <span className="globalSpan">
+                    <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Sale </span>
+                </span>
+                </div>
+                <div style={{marginTop: "-40px"}}>
+                    <Sale />
+                </div>
             </div>
         </>
     )

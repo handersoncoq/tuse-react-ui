@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 const SignOut = () =>{
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const onClick = async (e) =>{
             try {
                 const result = await TuseClient.delete("auth")
                 localStorage.clear();
-                alert(result.data)
+                console.log(`${result.data}`);
                 navigate("/")
             } catch (error) {
                 console.log(error)
@@ -25,7 +25,7 @@ const SignOut = () =>{
                 onClick={onClick}
                 style={{color: "rgb(15, 16, 26)", display: "float", marginLeft: "30px", cursor: "pointer", fontWeight: "normal"}}
                 ><span>
-                    <FaSignOutAlt style={{color: "white", display: "float" }}/>
+                    <FaSignOutAlt style={{color: "white", display: "float"}}/>
                 </span>
                 Sign Out
                 </span>

@@ -66,46 +66,52 @@ const Home = () => {
 
     return(
         <>
-            <Header resetStockList = {resetStockList}/>
-            <StockBySymbols getStockBySymbol = {getStockBySymbol} />
-            <StocksLowerThan getStocksLowerThan = {getStocksLowerThan} />
-            <StocksGreaterThan getStocksGreaterThan = {getStocksGreaterThan} />
-            <Navbar />
-            
-            <table>
+            <span>
+                <Header resetStockList = {resetStockList}/>
+                <Navbar />
+            </span>
+            <div style={{marginTop: "125px"}}>
+                <StockBySymbols getStockBySymbol = {getStockBySymbol} />
+                <StocksLowerThan getStocksLowerThan = {getStocksLowerThan} />
+                <StocksGreaterThan getStocksGreaterThan = {getStocksGreaterThan} />
+            </div>
 
-                <thead>
-                    <tr>
-                        <th align="center"> Company </th>
-                        <th align="center"> Symbol </th>
-                        <th align="center"> Price </th>
-                        <th align="center"> Trend </th>
-                        <th align="center"> Option </th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    { 
-                        stockList.map( stock => 
-                            <tr key={stock.stockId}>
-                                <td>{stock.company}</td>
-                                <td>{stock.symbol}</td>
-                                <td>{'$ '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
-                                <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "12px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
-                                <td><button
-                                 className="tableButton"
-                                 onClick={() =>{
-                                    localStorage.setItem("stockSymbol", stock.symbol);
-                                    navigate("/trade");
-                                 }}
-                                 
-                                 >Buy/Sell</button>
-                                 </td>
+                <div style={{marginTop: "185px"}}>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th align="center"> Company </th>
+                                <th align="center"> Symbol </th>
+                                <th align="center"> Price </th>
+                                <th align="center"> Trend </th>
+                                <th align="center"> Volume </th>
+                                <th align="center"> Option </th>
                             </tr>
-                            )
-                    }
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {
+                                stockList.map( stock =>
+                                    <tr key={stock.stockId}>
+                                        <td>{stock.company}</td>
+                                        <td>{stock.symbol}</td>
+                                        <td>{'$ '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
+                                        <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "20px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
+                                        <td>{stock.volume}</td>
+                                        <td><button
+                                         className="tableButton"
+                                         onClick={() =>{
+                                            localStorage.setItem("stockSymbol", stock.symbol);
+                                            navigate("/trade");
+                                         }}
+                    
+                                         >Buy/Sell</button>
+                                         </td>
+                                    </tr>
+                                    )
+                            }
+                        </tbody>
+                    </table>
+                </div>
          </>
     )
 }

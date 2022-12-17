@@ -4,6 +4,8 @@ import Header from "../Header";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStock } from "react-icons/ai";
 import Navbar from "../Navbar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () =>{
 
@@ -17,7 +19,7 @@ const SignIn = () =>{
     const handleSubmit = async (e) =>{
         e.preventDefault()
         if(!user.username || !user.password){
-            alert("Please fill out fields")  
+            toast.error("Please fill out all fields")  
         } else{
             console.log(user)
             try {
@@ -25,7 +27,7 @@ const SignIn = () =>{
                 if(result.data === "Success") {
                     localStorage.setItem("username", user.username);
                     navigate("/");
-                }else alert(`${result.data}`)
+                }else toast(`${result.data}`)
             } catch (error) {
                 console.log(error)
             }
@@ -34,39 +36,62 @@ const SignIn = () =>{
 
     return(
         <>  
-            <div onClick = {() => {navigate("/")}}>
-                <Header />
+            <div style={{marginTop: "30.1px"}}
+                    onClick = {() => {
+                    navigate("/");}}
+                >
+                <Header/>
+                <div style={{height: "20px"}}></div>
             </div>
-            <h1 className="orderH1"> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
-            <span className="globalSpan">
-                <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> SIGN IN </span>
-            </span>
+
+           <div className="Sign">
+                <h1> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
+            </div>
+            <div style={{marginTop: "190px"}}>
+                <span className="globalSpan">
+                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> SIGN IN </span>
+                </span>
+            </div>
             <Navbar />
-                <form className="orderInput">
-                    <div className="div">
-                        <label>Username</label>
-                        <input
-                        className="orderInput"
-                        type="text"
-                        placeholder="coolUser@1"
-                        value={user.username}
-                        onChange={(event) => setUser({ ...user, username: event.target.value })}
-                        />
-                    </div>
-                    <div className="div">
-                        <label>Password</label>
-                        <input
-                        className="orderInput"
-                        type="password"
-                        placeholder="strongPass123"
-                        value={user.password}
-                        onChange={(event) => setUser({ ...user, password: event.target.value })}
-                        />
-                    </div>
-                    <div>
-                        <button className="orderButton" onClick={handleSubmit}>Submit</button>
-                    </div>
-                </form>
+                <div>
+                    <form className="formInput">
+                        <div className="div">
+                            <label>Username</label>
+                            <input
+                            className="orderInput"
+                            type="text"
+                            placeholder="coolUser@1"
+                            value={user.username}
+                            onChange={(event) => setUser({ ...user, username: event.target.value })}
+                            />
+                        </div>
+                        <div className="div">
+                            <label>Password</label>
+                            <input
+                            className="orderInput"
+                            type="password"
+                            placeholder="strongPass123"
+                            value={user.password}
+                            onChange={(event) => setUser({ ...user, password: event.target.value })}
+                            />
+                        </div>
+                        <div>
+                            <button className="orderButton" onClick={handleSubmit}>Submit</button>
+                        </div>
+                    </form>
+                    <ToastContainer 
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
+                </div>
         </>
     )
 }
