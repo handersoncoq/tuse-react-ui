@@ -94,7 +94,7 @@ const Home = () => {
                                     <tr key={stock.stockId}>
                                         <td>{stock.company}</td>
                                         <td>{stock.symbol}</td>
-                                        <td>{'$ '+ Math.round((stock.price + Number.EPSILON) * 100) / 100}</td>
+                                        <td>{'$ '+ Math.ceil((stock.price + Number.EPSILON) * 100) / 100}</td>
                                         <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "20px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
                                         <td>{stock.volume}</td>
                                         <td><button

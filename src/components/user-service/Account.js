@@ -1,36 +1,30 @@
-import React, { useState } from "react";
+import * as React from 'react';
 import { TuseClient } from "../../tuse-client/TuseClient";
-import Header from "../Header";
-import { useNavigate } from "react-router-dom";
 import { AiOutlineStock } from "react-icons/ai";
+import Header from "../Header";
 import Navbar from "../Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const SignIn = () =>{
+const Account = () =>{
 
-    const navigate = useNavigate()
-
-    const [user, setUser] = useState({
+    const [updateRequest, setUpdateRequest] = React.useState({
         username: "",
-        password: "",
+        password: ""
     })
+
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        if(!user.username || !user.password){
-            toast.error("Please fill out all fields")  
-        } else{
-            console.log(user)
+        if(updateRequest.username  || updateRequest.password){
             try {
-                const result = await TuseClient.post("auth", user)
-                if(result.data === "Success") {
-                    localStorage.setItem("signIn", "true")
-                    navigate("/");
-                }else toast(`${result.data}`)
+                const result = await TuseClient.put("user/update", updateRequest)
+                toast.info(`${result.data}`)
             } catch (error) {
                 console.log(error)
             }
+        } else{
+            toast.error("Please update at least one field")
         }
     }
 
@@ -41,12 +35,12 @@ const SignIn = () =>{
                 <div style={{height: "20px"}}></div>
             </div>
 
-           <div className="Sign">
+            <div className="Sign">
                 <h1> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
             </div>
             <div style={{marginTop: "190px"}}>
                 <span className="globalSpan">
-                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> SIGN IN </span>
+                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> UPDATE YOUR ACCOUNT </span>
                 </span>
             </div>
             <Navbar />
@@ -58,8 +52,8 @@ const SignIn = () =>{
                             className="orderInput"
                             type="text"
                             placeholder="coolUser@1"
-                            value={user.username}
-                            onChange={(event) => setUser({ ...user, username: event.target.value })}
+                            value={updateRequest.username}
+                            onChange={(event) => setUpdateRequest({ ...updateRequest, username: event.target.value })}
                             />
                         </div>
                         <div className="div">
@@ -68,8 +62,8 @@ const SignIn = () =>{
                             className="orderInput"
                             type="password"
                             placeholder="strongPass123"
-                            value={user.password}
-                            onChange={(event) => setUser({ ...user, password: event.target.value })}
+                            value={updateRequest.password}
+                            onChange={(event) => setUpdateRequest({ ...updateRequest, password: event.target.value })}
                             />
                         </div>
                         <div>
@@ -91,5 +85,7 @@ const SignIn = () =>{
                 </div>
         </>
     )
+
+
 }
-export default SignIn
+export default Account

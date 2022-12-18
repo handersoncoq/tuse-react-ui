@@ -9,9 +9,8 @@ const SignOut = () =>{
 
     const onClick = async (e) =>{
             try {
-                const result = await TuseClient.delete("auth")
+                await TuseClient.delete("auth")
                 localStorage.clear();
-                console.log(`${result.data}`);
                 navigate("/")
             } catch (error) {
                 console.log(error)

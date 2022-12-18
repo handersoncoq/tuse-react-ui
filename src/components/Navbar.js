@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 // import { MdClose } from "react-icons/md"
 // import { FiMenu } from "react-icons/fi";
-import { BsPersonCircle, BsFillPersonFill } from "react-icons/bs";
+import { BsPersonCircle, BsFillPersonFill, BsFacebook } from "react-icons/bs";
 import { RiHome7Fill } from "react-icons/ri";
 import { SiGnuprivacyguard } from "react-icons/si";
-import { FaSignInAlt, FaEnvelope } from "react-icons/fa";
+import { FaSignInAlt, FaEnvelope, FaWhatsappSquare } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { MdDashboardCustomize } from "react-icons/md";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { TuseClient } from "../tuse-client/TuseClient";
 import SignOut from "./auth-service/SignOut";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,7 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
 
-    const username = localStorage.getItem("username");
+    let [username, setUsername] = useState("");
     const [navbarOpen, setNavbarOpen] = useState(true)
     const navigate = useNavigate();
     let links = [];
@@ -24,9 +26,23 @@ const Navbar = () => {
     //     setNavbarOpen(prev => !prev)
     // }
 
+    React.useEffect( () =>{
+        const getCurrentUser = async () =>{
+            if(localStorage.getItem("signIn")){
+                try {
+                const user = await TuseClient.get("user")
+                setUsername(user.data.username)
+            } catch (error) {
+                console.log(error)
+            }}
+        }
+        getCurrentUser();
+    }, [setUsername])
+
     const closeMenu = () => {
         setNavbarOpen(false)
       }
+
 
     if(!username) {links = [
         {
@@ -89,8 +105,10 @@ const Navbar = () => {
             <ul className={`menuNav ${navbarOpen ? " showMenu" : "showMenu"}`}>
             <span>
                {username ? <BsPersonCircle onClick = {() =>navigate("/account")} style={{ color: "rgb(10, 11, 19)", height: "120px", marginTop: "20px", width: "25%", marginLeft:"65px", cursor: "pointer" }}/>
-                : <hr style={{width:"70%", size:"20", marginLeft:"25px", marginTop: "60px" }}/>}
-                {username ? <p className="username">{username}</p> : ""}
+                : 
+                <img onClick = {() =>navigate("/")} src="tuse-logo.png" alt="Tuse Logo"/>
+                }
+                {username ? <p className="username">{username}</p> : <hr style={{width:"70%", size:"20", marginLeft:"25px"}}/>}
 
             </span>
                 <div style={{ marginTop: "-100px"}}>
@@ -117,10 +135,10 @@ const Navbar = () => {
                             </li>
                             )
                     })}
-                    {username ? <span onClick={()=> {toast.info("You've successfully signed out!")}
-                    }
+                    {username ? <span onClick={()=> {toast.info("You've successfully signed out!");
+                    setUsername("")}}
                     >< SignOut /></span> :
-                    <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "60px" }}></hr>}
+                    <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "40px" }}></hr>}
                 </div>
                 <ToastContainer 
                         position="top-right"
@@ -134,6 +152,20 @@ const Navbar = () => {
                         pauseOnHover
                         theme="dark"
                     />
+                    <span style={{marginLeft: "41px"}}>
+                        <span><a className="a" href="https://twitter.com/?lang=en">
+                            <AiFillTwitterCircle style={{height: "70px", width: "22px"}}/>
+                            </a>
+                        </span>
+                        <span><a className="a" href="https://www.facebook.com/">
+                            <BsFacebook style={{height: "70px", width: "20px"}}/>
+                            </a>
+                        </span>
+                        <span><a className="a" href="https://www.whatsapp.com/">
+                            <FaWhatsappSquare style={{height: "70px", width: "18px"}}/>
+                            </a>
+                        </span>
+                    </span>
             </ul>
         </nav>
     )
