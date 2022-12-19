@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import Header from "../Header";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineStock } from "react-icons/ai";
 import Navbar from "../Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -42,15 +41,17 @@ const SignIn = () =>{
             </div>
 
            <div className="Sign">
-                <h1> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
+           <img 
+           style={{marginTop: "15px", marginLeft: "-160px"}}
+           onClick = {() =>navigate("/")} src="tuse-arrow.png" alt="Tuse Arrow"/>
             </div>
-            <div style={{marginTop: "190px"}}>
+            <div style={{marginTop: "202px"}}>
                 <span className="globalSpan">
-                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> SIGN IN </span>
+                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger", marginLeft: "150px"}}> SIGN IN </span>
                 </span>
             </div>
             <Navbar />
-                <div>
+                <div style={{ marginLeft: "150px", marginTop: "-30px"}}>
                     <form className="formInput">
                         <div className="div">
                             <label>Username</label>
@@ -73,7 +74,7 @@ const SignIn = () =>{
                             />
                         </div>
                         <div>
-                            <button className="orderButton" onClick={handleSubmit}>Submit</button>
+                            <button className="orderButton" onClick={handleSubmit}>SUBMIT</button>
                         </div>
                     </form>
                     <ToastContainer 

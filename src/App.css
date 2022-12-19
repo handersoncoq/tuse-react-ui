@@ -40,13 +40,104 @@ body {
 }
 
 .header {
-  background-color: #034545;
+  background-color: rgb(21, 21, 28);
   height: 120px;
   position: fixed;
-  padding: 10px 0px;
+  padding: 20px 0px;
   margin-top: -22.5px;
   width: 100%;
+  border: solid;
+  border-width: 0.1px;
+  border-style: outset ;
 }
+
+/* Dashboard */
+
+.dashboard{
+  display: block;
+}
+
+.dashboardTrade:hover{
+  cursor: pointer;
+  color: red;
+}
+
+.dashboard tr:nth-child(even){
+  background-color: transparent;
+  color: white;
+  line-height: .5em;
+  border-color: white;
+}
+
+.dashboard tbody{
+  overflow-y: scroll;
+  height: 40px;
+}
+
+.dashboard td {
+  padding: 3px;
+  font-size: 14px;
+  width: 65px;
+}
+
+.dashboard th {
+  background-color: grey;
+  color: rgb(10, 11, 19);
+  justify-content: center;
+  padding: 3px;
+}
+
+.portfolioSpan{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(15, 16, 26);
+  margin-left: "20px";
+  color: darkcyan;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* ********************** */
+
+/* userStocks */
+
+.userStocks tr:nth-child(even){
+  background-color: transparent;
+  color: white;
+  line-height: .5em;
+  border-color: white;
+}
+
+.userStocks tbody{
+  overflow-y: scroll;
+  height: 40px;
+}
+
+.userStocks td {
+  padding: 4px;
+  font-size: 14px;
+  width: 65px;
+}
+
+.userStocks th {
+  background-color: grey;
+  color: rgb(10, 11, 19);
+  justify-content: center;
+  padding: 4px;
+}
+
+.userStockSpan{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-left: "20px";
+  color: darkcyan;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* ********************** */
 
 .start {
   height: 120px;
@@ -73,7 +164,7 @@ body {
 .form-container-symbol {
   width: 20%;
   margin-left: 332px;
-  margin-top: 3px;
+  margin-top: 13px;
   margin-bottom: 7px;
   display: flex;
   justify-content: space-evenly;
@@ -87,7 +178,7 @@ body {
 .form-container-lowerPrice {
   width: 20%;
   margin-left: 575px;
-  margin-top: 2px;
+  margin-top: 12px;
   margin-bottom: 7px;
   display: flex;
   justify-content: space-evenly;
@@ -101,7 +192,7 @@ body {
 .form-container-greaterPrice {
   width: 20%;
   margin-left: 817px;
-  margin-top: 2px;
+  margin-top: 12px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-evenly;
@@ -174,11 +265,13 @@ a:hover {
   border: none;
 }
 
+/* #034545 */
+
 .menuNav {
   list-style: none;
   position: fixed;
   top: -8px;
-  background: #034545;
+  background: #8d6f53;
   left: 0;
   bottom: 0;
   height: 100vh;
@@ -186,6 +279,9 @@ a:hover {
   overflow: hidden;
   max-width: 290px;
   margin-left: -40px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 1px;
 }
 
 .menuNav.showMenu {
@@ -243,17 +339,18 @@ table{
 }
 
 th, td {
-  text-align: left;
+  text-align:justify;
   padding: 8px;
 }
 
 tr:nth-child(even){
-  background-color: rgb(81, 79, 79);
-  color: white;
+  border: solid;
+  border-width: 0.4px 0;
+  border-color: #1f1e1e;
 }
 
 th {
-  background-color: #034545;
+  background-color: #bca085;
   color: rgb(10, 11, 19);
   justify-content: center;
 }
@@ -263,9 +360,9 @@ tbody{
   height: 40px;
 }
 
-.tableButton {
-  justify-content: center; 
+.tableButton:hover{
   cursor: pointer;
+  color: red;
 }
 
 /* order */
@@ -282,7 +379,7 @@ tbody{
 }
 
 .globalSpan{
-  padding: 8px;
+  padding: 2px;
   height: 30px;
   text-align: center;
   justify-content: center;
@@ -344,9 +441,9 @@ span:after {
 }
 
 .orderButton {
-  background-color: #034545;
-  color: white;
-  padding: 12px 154px;
+  background-color: #bca085;
+  color: rgb(15, 16, 26);
+  padding: 12px 148px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -354,24 +451,29 @@ span:after {
   justify-content: center;
   align-content: space-around;
   overflow: auto;
+  font-weight: bold;
 }
 
-.orderH1 {
-  color: white;
-  width: 100%;
-  margin-left: 320px;
-  margin-top: -150px;
-  position: fixed; 
-  background-color:  rgb(10, 11, 19);
-}
+
 
 .Sign {
   color: white;
-  width: 100%;
   margin-left: 320px;
-  margin-top: 100px;
+  margin-top: 109px;
   position: fixed; 
-  background-color:  rgb(10, 11, 19);
+}
+
+.Sign img{
+  margin-top: -80px;
+  width: 900px;
+  height: 80px;
+  justify-content: center;
+  margin-left: -223px;
+  float: left;
+  padding: 0;
+  
+  cursor: pointer;
+  background-color: rgb(10, 11, 19)
 }
 
 .formButton {
@@ -388,15 +490,39 @@ span:after {
   margin-left: 344px;
 }
 
-/* 
+/* animation */
 
-style={{
-      fontSize: "2.5rem",
-      fontWeight: "450",
-      color: "#fff",
-      textTransform: "uppercase",
-      textShadow: "0 0 3px #fff, 0 0 4px #fff",
-      marginLeft: "255px",
-                  }}
-    justifyContent: "center"
- */
+
+.stockShow {
+  -moz-animation: marquee 5s linear infinite;
+  -webkit-animation: marquee 5s linear infinite;
+  animation: marquee 10s linear infinite;
+}
+@-moz-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%)
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}

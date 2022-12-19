@@ -85,7 +85,7 @@ const Home = () => {
                                 <th align="center"> Price </th>
                                 <th align="center"> Trend </th>
                                 <th align="center"> Volume </th>
-                                <th align="center"> Option </th>
+                                <th align="center"> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,14 +97,14 @@ const Home = () => {
                                         <td>{'$ '+ Math.ceil((stock.price + Number.EPSILON) * 100) / 100}</td>
                                         <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "20px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
                                         <td>{stock.volume}</td>
-                                        <td><button
+                                        <td><span
                                          className="tableButton"
                                          onClick={() =>{
                                             localStorage.setItem("stockSymbol", stock.symbol);
                                             navigate("/trade");
                                          }}
                     
-                                         >Buy/Sell</button>
+                                         >Trade</span>
                                          </td>
                                     </tr>
                                     )

@@ -52,7 +52,7 @@ const Purchase = () => {
                     />
                 </div>
                 <div>
-                    <button className="orderButton" onClick={handleSubmit}>Submit</button>
+                    <button className="orderButton" onClick={handleSubmit}>SUBMIT</button>
                 </div>
                 <ToastContainer 
                         position="top-right"

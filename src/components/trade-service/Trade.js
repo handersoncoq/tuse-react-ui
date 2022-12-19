@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";import Header from "../Header";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineStock } from "react-icons/ai";
 import Navbar from "../Navbar";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import Purchase from "./Purchase";
@@ -40,10 +39,12 @@ const Trade = () => {
             
             <div>
 
-            <div  className="orderH1">
-                    <h1 > - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
+            <div  className="Sign">
+            <img 
+            style={{marginTop: "-239.5px", marginLeft: "-160px"}}
+            onClick = {() =>navigate("/")} src="tuse-arrow.png" alt="Tuse Arrow"/>
             </div>
-            <div style={{justifyContent: "center", marginTop: "-60px",
+            <div style={{justifyContent: "center", marginTop: "-60px", marginLeft: "65px",
                                 backgroundColor: "white",
                                 width: "100%",
                                 display: "flex",
@@ -57,20 +58,20 @@ const Trade = () => {
 
                 <div style={{marginTop: "250px"}}>
                     <span className="globalSpan">
-                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Purchase </span>
+                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger", marginLeft: "146px", }}> PURCHASE </span>
                     </span>
                 </div>
 
-                <div style={{marginTop: "-40px"}}>
+                <div style={{marginTop: "-40px", marginLeft: "150px"}}>
                     <Purchase />
                 </div>
 
                 <div style={{marginTop: "180px"}}>
                 <span className="globalSpan">
-                    <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger"}}> Sale </span>
+                    <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger", marginLeft: "146px"}}> SALE </span>
                 </span>
                 </div>
-                <div style={{marginTop: "-40px"}}>
+                <div style={{marginTop: "-40px", marginLeft: "150px"}}>
                     <Sale />
                 </div>
             </div>

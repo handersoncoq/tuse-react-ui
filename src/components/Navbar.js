@@ -154,15 +154,15 @@ const Navbar = () => {
                     />
                     <span style={{marginLeft: "41px"}}>
                         <span><a className="a" href="https://twitter.com/?lang=en">
-                            <AiFillTwitterCircle style={{height: "70px", width: "22px"}}/>
+                            <AiFillTwitterCircle style={{height: "70px", width: "22px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
                         <span><a className="a" href="https://www.facebook.com/">
-                            <BsFacebook style={{height: "70px", width: "20px"}}/>
+                            <BsFacebook style={{height: "70px", width: "20px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
                         <span><a className="a" href="https://www.whatsapp.com/">
-                            <FaWhatsappSquare style={{height: "70px", width: "18px"}}/>
+                            <FaWhatsappSquare style={{height: "70px", width: "18px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
                     </span>
