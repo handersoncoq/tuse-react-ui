@@ -2,9 +2,11 @@ import React from "react";
 import Header from "../Header";
 import Navbar from "../Navbar";
 import Portfolio from "./Portfolio";
-import { AiOutlineStock } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const DashBoard = () => {
+
+    const navigate = useNavigate()
 
     return(
         <>
@@ -13,21 +15,11 @@ const DashBoard = () => {
                 <div style={{height: "20px"}}></div>
             </div>
 
-           <div className="Sign">
-                <h1> - The Universal Stock Exchange {<AiOutlineStock style={{color: "darkcyan"}}/>}</h1>
-            </div>
-
-            <span style={{
-                marginBottom: "-215px", 
-                marginTop: "185px", 
-                display: "block", 
-                marginLeft: "840px",
-                color: "darkcyan",
-                fontSize: "large",
-                fontWeight: "bold"
-                }}>
-                YOUR STOCKS
-            </span>  
+            <div  className="Sign">
+            <img 
+            style={{marginTop: "15px", marginLeft: "-160px"}}
+            onClick = {() =>navigate("/")} src="tuse-arrow.png" alt="Tuse Arrow"/>
+            </div> 
   
             <Navbar />
             

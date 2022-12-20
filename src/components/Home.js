@@ -7,12 +7,14 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import {FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 const Home = () => {
 
     const [stockList, setStockList] = useState([])
 
     const navigate = useNavigate()
+    let numberFormatter = Intl.NumberFormat('en-US');
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -76,27 +78,37 @@ const Home = () => {
                 <StocksGreaterThan getStocksGreaterThan = {getStocksGreaterThan} />
             </div>
 
-                <div style={{marginTop: "185px"}}>
-                    <table>
-                        <thead>
+                <Typography style={{marginTop: "190px"}} component="div">
+                    <table
+                    style={{
+                        width: "800px",
+                        height:"200px", 
+                        overflow:"auto",
+                        display: "block",
+                        marginLeft: "239px"
+                      }}
+                    >
+                        <thead style={{ fontSize: "13.9px", textTransform: "uppercase" }}>
                             <tr>
                                 <th align="center"> Company </th>
                                 <th align="center"> Symbol </th>
                                 <th align="center"> Price </th>
                                 <th align="center"> Trend </th>
                                 <th align="center"> Volume </th>
+                                <th align="center"> Market Capitalization </th>
                                 <th align="center"> Action </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style={{ fontSize: "14px", height: "180px"}}>
                             {
                                 stockList.map( stock =>
                                     <tr key={stock.stockId}>
                                         <td>{stock.company}</td>
                                         <td>{stock.symbol}</td>
-                                        <td>{'$ '+ Math.ceil((stock.price + Number.EPSILON) * 100) / 100}</td>
+                                        <td>{'$ '+ numberFormatter.format(stock.price)}</td>
                                         <td>{stock.trend < 0 ? <FiTrendingDown style={{color: "red", marginLeft: "20px"}}/> : <FiTrendingUp style={{color: "#034545", marginLeft: "12px"}}/>}</td>
-                                        <td>{stock.volume}</td>
+                                        <td>{numberFormatter.format(stock.volume)}</td>
+                                        <td>{'$ '+ numberFormatter.format(stock.marketCap)}</td>
                                         <td><span
                                          className="tableButton"
                                          onClick={() =>{
@@ -111,7 +123,11 @@ const Home = () => {
                             }
                         </tbody>
                     </table>
-                </div>
+                </Typography>
+
+                <Typography style={{marginTop: "40px", marginLeft: "239px"}} component="div">
+                    News Letter Coming Soon!
+                </Typography>
          </>
     )
 }

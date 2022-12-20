@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { BsPersonCircle, BsFillPersonFill, BsFacebook } from "react-icons/bs";
 import { RiHome7Fill } from "react-icons/ri";
 import { SiGnuprivacyguard } from "react-icons/si";
-import { FaSignInAlt, FaEnvelope, FaWhatsappSquare } from "react-icons/fa";
+import { FaSignInAlt, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { MdDashboardCustomize } from "react-icons/md";
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -14,6 +14,8 @@ import SignOut from "./auth-service/SignOut";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Card from "@mui/material/Card";
+
 
 const Navbar = () => {
 
@@ -106,7 +108,16 @@ const Navbar = () => {
             <span>
                {username ? <BsPersonCircle onClick = {() =>navigate("/account")} style={{ color: "rgb(10, 11, 19)", height: "120px", marginTop: "20px", width: "25%", marginLeft:"65px", cursor: "pointer" }}/>
                 : 
-                <img onClick = {() =>navigate("/")} src="tuse-logo.png" alt="Tuse Logo"/>
+                <Card
+                sx={{
+                    width: 100,
+                    height: 100,
+                    backgroundColor: "#8f7358",
+                    marginLeft: "45px",
+                    borderRadius: '50%',
+                    marginBottom: "25px"
+                  }}
+                ><img onClick = {() =>navigate("/")} src="tuse-logo.png" alt="Tuse Logo"/></Card>
                 }
                 {username ? <p className="username">{username}</p> : <hr style={{width:"70%", size:"20", marginLeft:"25px"}}/>}
 
@@ -138,7 +149,7 @@ const Navbar = () => {
                     {username ? <span onClick={()=> {toast.info("You've successfully signed out!");
                     setUsername("")}}
                     >< SignOut /></span> :
-                    <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "40px" }}></hr>}
+                    <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "40px", marginBottom: "-5px" }}></hr>}
                 </div>
                 <ToastContainer 
                         position="top-right"
@@ -157,12 +168,12 @@ const Navbar = () => {
                             <AiFillTwitterCircle style={{height: "70px", width: "22px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
-                        <span><a className="a" href="https://www.facebook.com/">
-                            <BsFacebook style={{height: "70px", width: "20px", color: "rgb(15, 16, 26)"}}/>
+                        <span><a className="a" href="https://www.linkedin.com/feed/">
+                            <FaLinkedin style={{height: "70px", width: "18px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
-                        <span><a className="a" href="https://www.whatsapp.com/">
-                            <FaWhatsappSquare style={{height: "70px", width: "18px", color: "rgb(15, 16, 26)"}}/>
+                        <span><a className="a" href="https://www.facebook.com/">
+                            <BsFacebook style={{height: "70px", width: "20px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
                     </span>

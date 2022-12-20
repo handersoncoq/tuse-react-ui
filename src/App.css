@@ -250,6 +250,8 @@ a:hover {
   color: var(--c-white);
 }
 
+/* navbar */
+
 .navBar {
   position: fixed;
 }
@@ -263,6 +265,18 @@ a:hover {
   cursor: pointer;
   background: transparent;;
   border: none;
+}
+
+.navBar img{
+  margin-top: -78px;
+  width: 250px;
+  height: 250px;
+  justify-content: center;
+  margin-left: -70px;
+  float: left;
+  padding: 0;
+  margin-bottom: -50px;
+  cursor: pointer;
 }
 
 /* #034545 */
@@ -283,6 +297,10 @@ a:hover {
   border-radius: 5px;
   border-width: 1px;
 }
+/* 
+.sfg{
+  color: #8f7358;
+} */
 
 .menuNav.showMenu {
   width: 18%;
@@ -333,14 +351,12 @@ a {
 /* table */
 
 table{
-  margin-left: 239px;
   border-collapse: collapse;
-  width: 800px;
 }
 
 th, td {
   text-align:justify;
-  padding: 8px;
+  padding: 6px 10px;
 }
 
 tr:nth-child(even){
@@ -357,7 +373,6 @@ th {
 
 tbody{
   overflow-y: scroll;
-  height: 40px;
 }
 
 .tableButton:hover{
