@@ -11,7 +11,8 @@ const SignOut = () =>{
             try {
                 await TuseClient.delete("auth")
                 localStorage.clear();
-                navigate("/")
+                navigate("/");
+                // window.location.reload(false);
             } catch (error) {
                 console.log(error)
             }

@@ -26,7 +26,7 @@ const StocksLowerThan = (props) => {
             >
             <input
                 type="number"
-                placeholder="Search by price (Max)"
+                placeholder="Filter by max price ($ US)"
                 value={price}
                 onChange={onChange}
                 className="inputClass"

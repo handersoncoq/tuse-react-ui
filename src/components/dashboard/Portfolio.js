@@ -28,7 +28,7 @@ const Portfolio = () => {
         sx={{
           width: 435,
           marginTop: "220px",
-          marginLeft: "240px",
+          marginLeft: "225px",
           backgroundColor: "#bca085",
         }}
       >

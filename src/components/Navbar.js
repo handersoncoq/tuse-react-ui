@@ -35,7 +35,7 @@ const Navbar = () => {
                 const user = await TuseClient.get("user")
                 setUsername(user.data.username)
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }}
         }
         getCurrentUser();

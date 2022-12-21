@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import Header from "../Header";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+
 
 const SignUp = () =>{
-
-    const navigate = useNavigate()
 
     const [user, setUser] = useState({
         username: "",
@@ -30,68 +30,100 @@ const SignUp = () =>{
         }
     }
 
-    return(
-        <>  
-            <div style={{marginTop: "30.1px"}}
-                    onClick = {() => {
-                    navigate("/");}}
-                >
-                <Header/>
-                <div style={{height: "20px"}}></div>
-            </div>
-
-            <div className="Sign">
-            <img 
-            style={{marginTop: "15px", marginLeft: "-160px"}}
-            onClick = {() =>navigate("/")} src="tuse-arrow.png" alt="Tuse Arrow"/>
-            </div>
-            <div style={{marginTop: "202px"}}>
-                <span className="globalSpan">
-                        <span style={{color: "darkcyan", fontWeight: "650", fontSize: "larger", marginLeft: "150px"}}> 
-                        SIGN UP </span>
-                </span>
-            </div>
-            <Navbar />
-                <div style={{ marginLeft: "150px", marginTop: "-30px"}}>
-                    <form className="formInput">
-                        <div className="div">
-                            <label>Username</label>
-                            <input
-                            className="orderInput"
-                            type="text"
-                            placeholder="coolUser@1"
-                            value={user.username}
-                            onChange={(event) => setUser({ ...user, username: event.target.value })}
-                            />
-                        </div>
-                        <div className="div">
-                            <label>Password</label>
-                            <input
-                            className="orderInput"
-                            type="password"
-                            placeholder="strongPass123"
-                            value={user.password}
-                            onChange={(event) => setUser({ ...user, password: event.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <button className="orderButton" onClick={handleSubmit}>SUBMIT</button>
-                        </div>
-                    </form>
-                    <ToastContainer 
-                        position="top-right"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme="dark"
+    return (
+        <>
+          <div style={{ marginTop: "30.1px" }}>
+            <Header />
+            <div style={{ height: "20px" }}></div>
+          </div>
+          <Navbar />
+          <Card
+          style={{
+            marginTop: "180px",
+            height: "220px",
+            width: "600px",
+            marginLeft: "325px",
+            position: "fixed",
+            backgroundColor: "#8d6f53",
+          }}
+          > 
+              <Card
+              style={{
+                width: 90,
+                height: 90,
+                marginLeft: "262px",
+                backgroundColor: "#8f7358",
+                borderRadius: '50%',
+                position: "fixed",
+                marginTop: "-20px",
+              }}
+              >
+                  <Typography
+                  sx={{ fontSize: 16, color: "rgb(5, 51, 51)", marginTop: "20px" }}
+                        align="center"
+                        gutterBottom
+                  >SIGN UP</Typography>
+                  <div
+                    style={{
+                      marginTop: "-40px",
+                      marginLeft: "-53px",
+                    }}
+                  >
+                    <img
+                      src="tuse-trademark.png"
+                      alt="Tuse Trademark"
                     />
-                </div>
+                  </div>
+              </Card>
+              <div style={{ marginLeft: "-2px", marginTop: "40px" }}>
+                <form className="formInput"
+                autoComplete="off"
+                >
+                  <div className="div">
+                    <input
+                      className="orderInput"
+                      type="text"
+                      placeholder="Username"
+                      value={user.username}
+                      onChange={(event) =>
+                        setUser({ ...user, username: event.target.value })
+                      }
+                    />
+                  </div>
+                  <div className="div">
+                    <input
+                      className="orderInput"
+                      type="password"
+                      placeholder="Password"
+                      value={user.password}
+                      onChange={(event) =>
+                        setUser({ ...user, password: event.target.value })
+                      }
+                    />
+                  </div>
+                  <div>
+                    <button className="orderButton" onClick={handleSubmit}>
+                      <Typography
+                      sx={{ fontSize: 16, color: "white"}}
+                      >SUBMIT</Typography>
+                    </button>
+                  </div>
+                </form>
+              </div>
+          </Card>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </>
-    )
+      );
 }
 export default SignUp

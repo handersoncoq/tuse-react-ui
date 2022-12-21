@@ -39,6 +39,10 @@ body {
   overflow-x:hidden;
 }
 
+.sgh{
+  color: rgb(8, 72, 72);
+}
+
 .header {
   background-color: rgb(21, 21, 28);
   height: 120px;
@@ -49,6 +53,19 @@ body {
   border: solid;
   border-width: 0.1px;
   border-style: outset ;
+}
+
+.trademark img{
+  margin-top: 52px;
+  width: 280px;
+  height: 350px;
+  justify-content: center;
+  margin-left: 128px;
+  float: left;
+  padding: 0;
+  margin-bottom: -70px;
+  cursor: pointer;
+  position: fixed;
 }
 
 /* Dashboard */
@@ -87,6 +104,16 @@ body {
   padding: 3px;
 }
 
+.dashboard-portfolio img{
+  margin-top: 120px;
+  width: 180px;
+  height: 180px;
+  justify-content: center;
+  margin-left: 223px;
+  cursor: pointer;
+  background-color: rgb(10, 11, 19)
+}
+
 .portfolioSpan{
   text-align: center;
   justify-content: center;
@@ -96,6 +123,46 @@ body {
   color: darkcyan;
   font-size: large;
   font-weight: bold;
+}
+
+/* trade */
+
+.trade-input {
+  height: 40px;
+  text-align: center;
+  text-align: center;
+  justify-content: center;
+  margin-left:auto;
+  background: rgb(10, 11, 19);
+  color: white;
+  border-radius: 20px;
+  border-color: white;
+}
+
+.trade-form {
+  text-align: center;
+  text-align: center;
+  justify-content: center;
+  margin-left:auto;
+  background: rgb(10, 11, 19);
+  color: white;
+  margin-top: -20px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.trade-div {
+  padding: 0px 7px;
+  display: inline-block;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.trade-div label{
+  margin-top: -48px;
+  display: block;
+  justify-content: center;
 }
 
 /* ********************** */
@@ -173,6 +240,7 @@ body {
   border-radius: 5px;
   border-width: 1px;
   position: fixed;
+  border-color: white;
 }
 
 .form-container-lowerPrice {
@@ -187,6 +255,7 @@ body {
   border-radius: 5px;
   border-width: 1px;
   position: fixed;
+  border-color: white;
 }
 
 .form-container-greaterPrice {
@@ -201,6 +270,7 @@ body {
   border-radius: 5px;
   border-width: 1px;
   position: fixed;
+  border-color: white;
 }
 
 .inputClass{
@@ -428,10 +498,10 @@ span:after {
 }
 
 .div {
-  padding: 0px 4px;
+  padding: 0px 7px;
   display: inline-block;
   justify-content: center;
-  margin: auto;
+  margin-top: 90px;
   text-align: center;
 }
 
@@ -441,8 +511,10 @@ span:after {
   text-align: center;
   justify-content: center;
   margin-left:auto;
-  background: transparent;
+  background: rgb(10, 11, 19);
   color: white;
+  border-radius: 20px;
+  border-color: white;
 }
 
 .formInput {
@@ -450,14 +522,16 @@ span:after {
   text-align: center;
   justify-content: center;
   margin-left:auto;
-  background: transparent;
+  background: rgb(10, 11, 19);
   color: white;
   margin-top: -20px;
+  border-radius: 5px;
+  height: 140px;
 }
 
 .orderButton {
-  background-color: #bca085;
-  color: rgb(15, 16, 26);
+  background-color: rgb(5, 51, 51);
+  color: darkred;
   padding: 12px 148px;
   margin: 8px 0;
   border: none;
@@ -486,7 +560,6 @@ span:after {
   margin-left: -223px;
   float: left;
   padding: 0;
-  
   cursor: pointer;
   background-color: rgb(10, 11, 19)
 }
@@ -508,36 +581,22 @@ span:after {
 /* animation */
 
 
+.holder {
+  overflow: hidden;
+}
 .stockShow {
-  -moz-animation: marquee 5s linear infinite;
-  -webkit-animation: marquee 5s linear infinite;
-  animation: marquee 10s linear infinite;
+  animation : slide 5s linear infinite;
+  display:-webkit-inline-box;
+  margin-left: 41px;
+  white-space: inherit;
 }
-@-moz-keyframes marquee {
+
+@keyframes slide {
   0% {
-    transform: translateX(100%);
+    transform: translatex(0%)
   }
+
   100% {
-    transform: translateX(-100%);
-  }
-}
-@-webkit-keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-@keyframes marquee {
-  0% {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%)
-  }
-  100% {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    transform: translatex(100%)
   }
 }
