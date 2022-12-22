@@ -6,14 +6,12 @@ import StocksLowerThan from "./filter-functions/StocksLowerThan";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
 const Home = () => {
   const [stockList, setStockList] = useState([]);
 
-  const navigate = useNavigate();
   let numberFormatter = Intl.NumberFormat("en-US");
 
   useEffect(() => {
@@ -72,43 +70,52 @@ const Home = () => {
         <Navbar />
       </span>
       <Card
-      style={{
-        marginTop: "165px",
-        height: "50px",
-        width: "800px",
-        marginLeft: "228px",
-        position: "fixed",
-        backgroundColor: "rgb(10, 11, 19)"
-      }}
+        style={{
+          marginTop: "165px",
+          height: "50px",
+          width: "820px",
+          marginLeft: "218px",
+          position: "fixed",
+          backgroundColor: "rgb(10, 11, 19)",
+        }}
       >
-          <div
+        <div
           style={{
             marginTop: "-190px",
-            marginLeft: "-226px",
+            marginLeft: "-221px",
           }}
-          >
-              <span className="trademark">
-                <img
-                  onClick={resetStockList}
-                  src="tuse-trademark.png"
-                  alt="Tuse Trademark"
-                />
-              </span>
-              <div style={{ marginTop: "165px", marginLeft: "-9px" }}>
-                <StockBySymbols getStockBySymbol={getStockBySymbol} />
-                <StocksLowerThan getStocksLowerThan={getStocksLowerThan} />
-                <StocksGreaterThan getStocksGreaterThan={getStocksGreaterThan} />
-              </div>
+        >
+          <span className="trademark">
+            <img
+              onClick={resetStockList}
+              src="tuse-trademark.png"
+              alt="Tuse Trademark"
+            />
+          </span>
+          <div style={{ marginTop: "165px", marginLeft: "2px" }}>
+            <StockBySymbols getStockBySymbol={getStockBySymbol} />
+            <StocksLowerThan getStocksLowerThan={getStocksLowerThan} />
+            <StocksGreaterThan getStocksGreaterThan={getStocksGreaterThan} />
           </div>
+        </div>
       </Card>
-      <Typography style={{ marginTop: "220px" }} component="div">
+      <Card
+        style={{
+          marginTop: "220px",
+          height: "201px",
+          width: "813px",
+          marginLeft: "220px",
+          backgroundColor: "#bca085",
+          display: "block",
+        }}
+        component="div"
+      >
         <table
           style={{
-            width: "800px",
             height: "200px",
             overflow: "auto",
             display: "block",
-            marginLeft: "228px",
+            marginLeft: "-3px",
           }}
         >
           <thead style={{ fontSize: "13.9px", textTransform: "uppercase" }}>
@@ -119,7 +126,7 @@ const Home = () => {
               <th align="center"> Trend </th>
               <th align="center"> Volume </th>
               <th align="center"> Market Capitalization </th>
-              <th align="center"> Action </th>
+              <th style={{ textAlign: "center" }}> Action </th>
             </tr>
           </thead>
           <tbody style={{ fontSize: "14px", height: "180px" }}>
@@ -128,38 +135,45 @@ const Home = () => {
                 <td>{stock.company}</td>
                 <td>{stock.symbol}</td>
                 <td>{"$ " + numberFormatter.format(stock.price)}</td>
-                <td>
+                <td style={{ textAlign: "center" }}>
                   {stock.trend < 0 ? (
-                    <FiTrendingDown
-                      style={{ color: "red", marginLeft: "20px" }}
-                    />
+                    <FiTrendingDown style={{ color: "red" }} />
                   ) : (
-                    <FiTrendingUp
-                      style={{ color: "darkgreen", marginLeft: "12px" }}
-                    />
+                    <FiTrendingUp style={{ color: "darkgreen" }} />
                   )}
                 </td>
                 <td>{numberFormatter.format(stock.volume)}</td>
                 <td>{"$ " + numberFormatter.format(stock.marketCap)}</td>
                 <td>
-                  <span
-                    className="tableButton"
-                    onClick={() => {
-                      localStorage.setItem("stockSymbol", stock.symbol);
-                      navigate("/trade");
-                    }}
-                  >
-                    Trade
+                  <span style={{ fontSize: "10px" }}>
+                    <span
+                      className="tableButton"
+                      onClick={() => {
+                        localStorage.setItem("stockSymbol", stock.symbol);
+                        window.open("/buying", "_blank");
+                      }}
+                    >
+                      &nbsp;&nbsp;&nbsp; BUY &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span
+                      className="tableButton"
+                      onClick={() => {
+                        localStorage.setItem("stockSymbol", stock.symbol);
+                        window.open("/selling", "_blank");
+                      }}
+                    >
+                      &nbsp;&nbsp;&nbsp; SELL &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
                   </span>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </Typography>
+      </Card>
 
       <Typography
-        style={{ marginTop: "40px", marginLeft: "239px" }}
+        style={{ marginTop: "40px", marginLeft: "539px" }}
         component="div"
       >
         News Letter Coming Soon!

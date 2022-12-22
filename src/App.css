@@ -70,13 +70,39 @@ body {
 
 /* Dashboard */
 
+.dashboard img{
+  margin-top: -70px;
+  width: 250px;
+  height: 250px;
+  justify-content: center;
+  margin-left: -23px;
+  float: left;
+  padding: 0;
+  margin-bottom: -70px;
+  cursor:none;
+}
+
 .dashboard{
   display: block;
 }
 
+.dashboardTrade {
+  cursor: pointer;
+  color: #034545;
+  background-color: #bca085;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  font-size: 9.8px;
+}
+
 .dashboardTrade:hover{
   cursor: pointer;
-  color: red;
+  font-weight: bold;
+  background-color: #bca085;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  font-size: 10px;
+  border-radius: 7px;
 }
 
 .dashboard tr:nth-child(even){
@@ -317,7 +343,18 @@ body {
 }
 
 a:hover {
-  color: var(--c-white);
+  color: #034545;
+  background-color: #8f7358;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 /* navbar */
@@ -397,6 +434,17 @@ a {
   margin-left: 12px;
 }
 
+.home-page-link a {
+  display:flex;
+  padding: 0px 10px;
+  text-decoration: none;
+  color: rgb(10, 11, 19);
+  text-transform: uppercase;
+  font-weight: bold;
+  justify-content:flex-start;
+  font-size: small;
+}
+
 .a{
   display:inherit;
   padding: 0;
@@ -426,7 +474,7 @@ table{
 
 th, td {
   text-align:justify;
-  padding: 6px 10px;
+  padding: 4px 10px;
 }
 
 tr:nth-child(even){
@@ -436,7 +484,7 @@ tr:nth-child(even){
 }
 
 th {
-  background-color: #bca085;
+  background-color: #8d6f53;
   color: rgb(10, 11, 19);
   justify-content: center;
 }
@@ -447,7 +495,21 @@ tbody{
 
 .tableButton:hover{
   cursor: pointer;
-  color: red;
+  color: #034545;
+  background-color: #bca085;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  font-size: 9.8px;
+}
+
+.tableButton  {
+  cursor: pointer;
+  color: #034545;
+  background-color: #bca085;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 10px;
 }
 
 /* order */
@@ -580,6 +642,20 @@ span:after {
 
 /* animation */
 
+.reactive {
+  border-radius: 50%;
+  width:25px; 
+  height: 25px;
+  color: darkred;
+  margin-top: -23px;
+  background-color: #8f7358;
+  text-align: center;
+}
+
+.reactive:hover{
+  color: #034545;
+  animation: ripple 600ms linear;
+}
 
 .holder {
   overflow: hidden;

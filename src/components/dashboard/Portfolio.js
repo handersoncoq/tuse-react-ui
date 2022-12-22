@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TuseClient } from "../../tuse-client/TuseClient";
-import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -8,7 +7,6 @@ import Typography from "@mui/material/Typography";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,10 +56,10 @@ const Portfolio = () => {
                 <tr>
                   <th align="center"> Stock </th>
                   <th align="center"> Shares </th>
-                  <th align="center"> Avg Cost </th>
+                  <th align="center"> Avg. Cost </th>
                   <th align="center"> Equity </th>
                   <th align="center"> Return </th>
-                  <th align="center"> Action </th>
+                  <th style={{textAlign: "center"}}> Action </th>
                 </tr>
               </thead>
               <tbody style={{ fontSize: "10px" }}>
@@ -90,12 +88,12 @@ const Portfolio = () => {
                         )}
                       </span>
                     </td>
-                    <td>
+                    <td style={{textAlign: "center"}}>
                       <span
                         className="dashboardTrade"
                         onClick={() => {
                           localStorage.setItem("stockSymbol", stock.symbol);
-                          navigate("/trade");
+                          window.open("/trade", "_blank");
                         }}
                       >
                         Trade

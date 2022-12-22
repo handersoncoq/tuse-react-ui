@@ -3,11 +3,10 @@ import Header from "../Header";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 import { TuseClient } from "../../tuse-client/TuseClient";
-import Purchase from "./Purchase";
 import Sale from "./Sale";
 import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 
-const Trade = () => {
+const Selling = () => {
   const navigate = useNavigate();
 
   let symbol = localStorage.getItem("stockSymbol");
@@ -80,18 +79,10 @@ const Trade = () => {
         <Navbar />
 
         <div style={{ marginTop: "-40px", marginLeft: "150px" }}>
-          <Purchase />
-        </div>
-
-        <hr
-        style={{ color: "white", marginTop: "30px", marginLeft: "200px"}}
-        ></hr>
-
-        <div style={{ marginTop: "-220px", marginLeft: "150px" }}>
           <Sale />
         </div>
       </div>
     </>
   );
 };
-export default Trade;
+export default Selling;

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../Header";
 import Navbar from "../Navbar";
 import Portfolio from "./Portfolio";
-import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import { Typography } from "@mui/material";
 import { TuseClient } from "../../tuse-client/TuseClient";
@@ -12,7 +11,6 @@ import UserStocks from "./UserStocks";
 const DashBoard = () => {
 
     let [username, setUsername] = useState("");
-    const navigate = useNavigate()
 
     React.useEffect( () =>{
         const getCurrentUser = async () =>{
@@ -38,8 +36,8 @@ const DashBoard = () => {
             style={{
                 marginTop: "140px",
                 height: "50px",
-                width: "800px",
-                marginLeft: "228px",
+                width: "812px",
+                marginLeft: "222px",
                 backgroundColor: "#8d6f53",
                 position: "fixed"
               }}
@@ -52,7 +50,7 @@ const DashBoard = () => {
                   }}
                 >
                     <img
-                    onClick = {() =>navigate("/")}
+                    style={{cursor: "auto"}}
                     src="tuse-trademark.png"
                     alt="Tuse Trademark"
                     />
@@ -73,7 +71,7 @@ const DashBoard = () => {
                   }}
                 >
                     <img
-                    onClick = {() =>navigate("/")}
+                    style={{cursor: "auto"}}
                     src="tuse-trademark.png"
                     alt="Tuse Trademark"
                     />

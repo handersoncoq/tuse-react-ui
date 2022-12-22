@@ -83,7 +83,7 @@ const Purchase = () => {
             <div>
               <button className="orderButton" onClick={handleSubmit}>
                 <Typography sx={{ fontSize: 16, color: "white" }}>
-                  SUBMIT
+                  BUY
                 </Typography>
               </button>
             </div>

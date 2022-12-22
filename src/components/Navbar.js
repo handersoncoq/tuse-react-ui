@@ -95,7 +95,7 @@ const Navbar = () => {
             {
                 id: 4,
                 path: "/account",
-                text: "Account",
+                text: "Manage",
                 icon: <BsFillPersonFill/>
             },
         ]
@@ -131,15 +131,24 @@ const Navbar = () => {
                                 to={link.path}
                                 onClick={() => closeMenu()}
                                 >
-                                <span style = {{
-                                color: "darkred",
+                                <span 
+                                
+                                style = {{
                                 width:"25px", 
                                 height: "23px", 
                                 borderRadius: "50%",
-                                backgroundColor: "rgba(0,0,0,.5)",
-                                paddingTop: "2px"
                                 }}>
-                                {link.icon}
+                                <Card
+                                style={{
+                                    borderRadius: '50%',
+                                    width:"25px", 
+                                    height: "25px",
+                                    color: "darkred",
+                                    marginTop: "-23px",
+                                    backgroundColor: "#8f7358",
+                                    textAlign: "center",
+                                }}
+                                >{link.icon}</Card>
                                 </span>
                                     <span>{link.text}</span>
                                 </NavLink>
@@ -164,15 +173,15 @@ const Navbar = () => {
                         theme="dark"
                     />
                     <span style={{marginLeft: "41px"}}>
-                        <span><a className="a" href="https://twitter.com/?lang=en">
+                        <span><a className="a" href="https://twitter.com/?lang=en" target="_blank" rel="noreferrer">
                             <AiFillTwitterCircle style={{height: "70px", width: "22px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
-                        <span><a className="a" href="https://www.linkedin.com/feed/">
+                        <span><a className="a" href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">
                             <FaLinkedin style={{height: "70px", width: "18px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>
-                        <span><a className="a" href="https://www.facebook.com/">
+                        <span><a className="a" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                             <BsFacebook style={{height: "70px", width: "20px", color: "rgb(15, 16, 26)"}}/>
                             </a>
                         </span>

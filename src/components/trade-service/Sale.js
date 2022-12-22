@@ -49,7 +49,7 @@ const Sale = () => {
             <Typography
               style={{
                 position: "relative",
-                marginLeft: "235px",
+                marginLeft: "248px",
                 marginTop: "15px",
               }}
             >
@@ -88,7 +88,7 @@ const Sale = () => {
                 <div>
                   <button className="orderButton" onClick={handleSubmit}>
                     <Typography sx={{ fontSize: 16, color: "white" }}>
-                      SUBMIT
+                      SELL
                     </Typography>
                   </button>
                 </div>
