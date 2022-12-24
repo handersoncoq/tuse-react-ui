@@ -44,7 +44,7 @@ const DashBoard = () => {
             >
                 <div
                 style={{
-                    marginTop: "-20px",
+                    marginTop: "-28px",
                     marginLeft: "25px",
                     position: "fixed"
                   }}
@@ -65,8 +65,8 @@ const DashBoard = () => {
                 >Hi, ${username} <BsEmojiSmile/> </Typography>
                 <div
                 style={{
-                    marginTop: "-20px",
-                    marginLeft: "585px",
+                    marginTop: "-28px",
+                    marginLeft: "582px",
                     position: "fixed"
                   }}
                 >

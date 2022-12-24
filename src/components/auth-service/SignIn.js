@@ -68,8 +68,8 @@ const SignIn = () => {
               >SIGN IN</Typography>
               <div
                 style={{
-                  marginTop: "-40px",
-                  marginLeft: "-53px",
+                  marginTop: "-50px",
+                  marginLeft: "-55px",
                 }}
               >
                 <img
@@ -86,7 +86,7 @@ const SignIn = () => {
                 <input
                   className="orderInput"
                   type="text"
-                  placeholder="Username"
+                  placeholder="username"
                   value={user.username}
                   onChange={(event) =>
                     setUser({ ...user, username: event.target.value })
@@ -97,7 +97,7 @@ const SignIn = () => {
                 <input
                   className="orderInput"
                   type="password"
-                  placeholder="Password"
+                  placeholder="password"
                   value={user.password}
                   onChange={(event) =>
                     setUser({ ...user, password: event.target.value })

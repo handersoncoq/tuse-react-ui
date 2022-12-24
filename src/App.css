@@ -56,7 +56,7 @@ body {
 }
 
 .trademark img{
-  margin-top: 52px;
+  margin-top: 42px;
   width: 280px;
   height: 350px;
   justify-content: center;
@@ -464,12 +464,24 @@ a {
   display: flex;
   justify-content: center;
   margin-left: -10px;
+  cursor: pointer;
+}
+
+.username:hover{
+  text-decoration: underline;
+  color: #034545;
 }
 
 /* table */
 
 table{
   border-collapse: collapse;
+}
+
+.navigate:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #034545;
 }
 
 th, td {
@@ -675,4 +687,14 @@ span:after {
   100% {
     transform: translatex(100%)
   }
+}
+
+/* manage */
+
+.manage-div {
+  padding: 0px 7px;
+  display: inline-block;
+  justify-content: center;
+  margin-top: 25px;
+  text-align: center;
 }

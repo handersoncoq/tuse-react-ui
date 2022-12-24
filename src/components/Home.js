@@ -69,6 +69,17 @@ const Home = () => {
         <Header resetStockList={resetStockList} />
         <Navbar />
       </span>
+      <div
+        style ={{
+          marginTop: "140px",
+          height: "40px",
+          backgroundColor: "rgb(10, 11, 19)",
+          position: "fixed",
+          width: "100%",
+          marginLeft: "188px",
+        }}
+        >
+      </div>
       <Card
         style={{
           marginTop: "165px",
@@ -132,8 +143,18 @@ const Home = () => {
           <tbody style={{ fontSize: "14px", height: "180px" }}>
             {stockList.map((stock) => (
               <tr key={stock.stockId}>
-                <td>{stock.company}</td>
-                <td>{stock.symbol}</td>
+                <td
+                  className="navigate"
+                  onClick={() => window.open(`/stock/${stock.symbol}`, "_blank")}
+                >
+                  {stock.company}
+                </td>
+                <td
+                  className="navigate"
+                  onClick={() => window.open(`/stock/${stock.symbol}`, "_blank")}
+                >
+                  {stock.symbol}
+                </td>
                 <td>{"$ " + numberFormatter.format(stock.price)}</td>
                 <td style={{ textAlign: "center" }}>
                   {stock.trend < 0 ? (

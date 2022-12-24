@@ -20,7 +20,7 @@ import Card from "@mui/material/Card";
 const Navbar = () => {
 
     let [username, setUsername] = useState("");
-    const [navbarOpen, setNavbarOpen] = useState(true)
+    const [navbarOpen, setNavbarOpen] = useState(true);
     const navigate = useNavigate();
     let links = [];
 
@@ -38,8 +38,8 @@ const Navbar = () => {
                 // console.log(error)
             }}
         }
-        getCurrentUser();
-    }, [setUsername])
+        getCurrentUser()
+    }, [username]) 
 
     const closeMenu = () => {
         setNavbarOpen(false)
@@ -94,7 +94,7 @@ const Navbar = () => {
             },
             {
                 id: 4,
-                path: "/account",
+                path: "/manage",
                 text: "Manage",
                 icon: <BsFillPersonFill/>
             },
@@ -106,7 +106,7 @@ const Navbar = () => {
             
             <ul className={`menuNav ${navbarOpen ? " showMenu" : "showMenu"}`}>
             <span>
-               {username ? <BsPersonCircle onClick = {() =>navigate("/account")} style={{ color: "rgb(10, 11, 19)", height: "120px", marginTop: "20px", width: "25%", marginLeft:"65px", cursor: "pointer" }}/>
+               {username ? <BsPersonCircle onClick = {() =>navigate("/manage")} style={{ color: "rgb(10, 11, 19)", height: "120px", marginTop: "16px", width: "25%", marginLeft:"65px", cursor: "pointer" }}/>
                 : 
                 <Card
                 sx={{
@@ -119,7 +119,11 @@ const Navbar = () => {
                   }}
                 ><img onClick = {() =>navigate("/")} src="tuse-logo.png" alt="Tuse Logo"/></Card>
                 }
-                {username ? <p className="username">{username}</p> : <hr style={{width:"70%", size:"20", marginLeft:"25px"}}/>}
+                {username ? <p onClick = {() =>navigate("/manage")} className="username">{username}</p> : <hr style={{width:"70%", size:"20", marginLeft:"25px"}}/>}
+                {
+                    username ? <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "25px", marginBottom: "-5px" }}></hr>
+                    : ""
+                }
 
             </span>
                 <div style={{ marginTop: "-100px"}}>
@@ -159,6 +163,10 @@ const Navbar = () => {
                     setUsername("")}}
                     >< SignOut /></span> :
                     <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "40px", marginBottom: "-5px" }}></hr>}
+                {
+                    username ? <hr style={{ width:"70%", size:"20", marginLeft:"25px", marginTop: "5px", marginBottom: "-5px" }}></hr>
+                    : ""
+                }
                 </div>
                 <ToastContainer 
                         position="top-right"

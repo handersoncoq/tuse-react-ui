@@ -20,7 +20,10 @@ const SignUp = () =>{
         if(!user.username || !user.password){
             toast.error("Please fill out all fields")  
         } else{
-            console.log(user)
+            if(user.username.length > 12) {
+              toast.info("Username is too long. Please choose a shorter one")
+              return;
+            }
             try {
                 const result = await TuseClient.post("user", user)
                 toast.info(`${result.data}`)
@@ -65,8 +68,8 @@ const SignUp = () =>{
                   >SIGN UP</Typography>
                   <div
                     style={{
-                      marginTop: "-40px",
-                      marginLeft: "-53px",
+                      marginTop: "-50px",
+                      marginLeft: "-55px",
                     }}
                   >
                     <img
@@ -83,7 +86,7 @@ const SignUp = () =>{
                     <input
                       className="orderInput"
                       type="text"
-                      placeholder="Username"
+                      placeholder="username"
                       value={user.username}
                       onChange={(event) =>
                         setUser({ ...user, username: event.target.value })
@@ -94,7 +97,7 @@ const SignUp = () =>{
                     <input
                       className="orderInput"
                       type="password"
-                      placeholder="Password"
+                      placeholder="password"
                       value={user.password}
                       onChange={(event) =>
                         setUser({ ...user, password: event.target.value })

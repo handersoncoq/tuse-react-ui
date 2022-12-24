@@ -6,10 +6,10 @@ import Trade from './components/trade-service/Trade';
 import Home from './components/Home';
 import SignUp from './components/user-service/SignUp';
 import SignIn from './components/auth-service/SignIn';
-import Account from './components/user-service/Account';
 import DashBoard from './components/dashboard/Dashboard';
 import Buying from './components/trade-service/Buying';
 import Selling from './components/trade-service/Selling';
+import Manage from './components/user-service/Manage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,7 +23,7 @@ root.render(
             <Route path="/buying" element={<Buying />} />
             <Route path="/selling" element={<Selling />} />
             <Route path="/trade" element={<Trade />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/manage" element={<Manage />} />
             <Route path="/dashboard" element={<DashBoard />} />
         </Routes>
     </Router>

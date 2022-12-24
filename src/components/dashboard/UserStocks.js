@@ -73,7 +73,7 @@ const UserStocks = () => {
                             (stock.priceToSell + Number.EPSILON) * 100
                           ) /
                             100
-                        : "-"}
+                        : ""}
                     </td>
                     <td>
                       <span
