@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { paths } from "../../endpoints/Endpoints";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Card from "@mui/material/Card";
@@ -10,12 +11,12 @@ const Portfolio = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      if (localStorage.getItem("signIn")){try {
         const result = await TuseClient.get("userStock/userPortfolio");
         setPortfolio(result.data);
       } catch (error) {
         console.log(error);
-      }
+      }}
     };
     fetchData();
   }, [setPortfolio]);
@@ -47,9 +48,9 @@ const Portfolio = () => {
                 marginLeft: "-5px",
                 marginTop: "10px",
                 width: "410px",
-                height:"100px", 
-                overflow:"auto",
-                padding: "2px 0px"
+                height: "100px",
+                overflow: "auto",
+                padding: "2px 0px",
               }}
             >
               <thead style={{ fontSize: "10px", textTransform: "uppercase" }}>
@@ -59,7 +60,7 @@ const Portfolio = () => {
                   <th align="center"> Avg. Cost </th>
                   <th align="center"> Equity </th>
                   <th align="center"> Return </th>
-                  <th style={{textAlign: "center"}}> Action </th>
+                  <th style={{ textAlign: "center" }}> Action </th>
                 </tr>
               </thead>
               <tbody style={{ fontSize: "10px" }}>
@@ -88,12 +89,12 @@ const Portfolio = () => {
                         )}
                       </span>
                     </td>
-                    <td style={{textAlign: "center"}}>
+                    <td style={{ textAlign: "center" }}>
                       <span
                         className="dashboardTrade"
                         onClick={() => {
                           localStorage.setItem("stockSymbol", stock.symbol);
-                          window.open("/trade", "_blank");
+                          window.open(`${paths.trading}`, "_blank");
                         }}
                       >
                         Trade

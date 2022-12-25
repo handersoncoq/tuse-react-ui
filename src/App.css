@@ -350,6 +350,10 @@ a:hover {
   font-size: 17px;
 }
 
+.a-message:hover{
+  cursor: pointer;
+}
+
 @keyframes ripple {
   to {
     transform: scale(4);

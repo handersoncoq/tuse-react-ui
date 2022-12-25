@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { paths } from "../endpoints/Endpoints";
 import { TuseClient } from "../tuse-client/TuseClient";
 import StockBySymbols from "./filter-functions/StockBySymbols";
 import StocksGreaterThan from "./filter-functions/StocksGreaterThan";
@@ -70,7 +71,7 @@ const Home = () => {
         <Navbar />
       </span>
       <div
-        style ={{
+        style={{
           marginTop: "140px",
           height: "40px",
           backgroundColor: "rgb(10, 11, 19)",
@@ -78,8 +79,7 @@ const Home = () => {
           width: "100%",
           marginLeft: "188px",
         }}
-        >
-      </div>
+      ></div>
       <Card
         style={{
           marginTop: "165px",
@@ -145,13 +145,17 @@ const Home = () => {
               <tr key={stock.stockId}>
                 <td
                   className="navigate"
-                  onClick={() => window.open(`/stock/${stock.symbol}`, "_blank")}
+                  onClick={() =>
+                    window.open(`${paths.stocks}/${stock.symbol}`, "_blank")
+                  }
                 >
                   {stock.company}
                 </td>
                 <td
                   className="navigate"
-                  onClick={() => window.open(`/stock/${stock.symbol}`, "_blank")}
+                  onClick={() =>
+                    window.open(`${paths.stocks}/${stock.symbol}`, "_blank")
+                  }
                 >
                   {stock.symbol}
                 </td>
@@ -171,7 +175,7 @@ const Home = () => {
                       className="tableButton"
                       onClick={() => {
                         localStorage.setItem("stockSymbol", stock.symbol);
-                        window.open("/buying", "_blank");
+                        window.open(`${paths.buying}`, "_blank");
                       }}
                     >
                       &nbsp;&nbsp;&nbsp; BUY &nbsp;&nbsp;&nbsp;&nbsp;
@@ -180,7 +184,7 @@ const Home = () => {
                       className="tableButton"
                       onClick={() => {
                         localStorage.setItem("stockSymbol", stock.symbol);
-                        window.open("/selling", "_blank");
+                        window.open(`${paths.selling}`, "_blank");
                       }}
                     >
                       &nbsp;&nbsp;&nbsp; SELL &nbsp;&nbsp;&nbsp;&nbsp;

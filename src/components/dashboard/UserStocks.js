@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { paths } from "../../endpoints/Endpoints";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,12 +10,12 @@ const UserStocks = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      if (localStorage.getItem("signIn")){try {
         const result = await TuseClient.get("userStock");
         setUserStocks(result.data);
       } catch (error) {
         console.log(error);
-      }
+      }}
     };
     fetchData();
   }, [setUserStocks]);
@@ -80,7 +81,7 @@ const UserStocks = () => {
                         className="dashboardTrade"
                         onClick={() => {
                           localStorage.setItem("stockSymbol", stock.symbol);
-                          window.open("/updateSale", "_blank");
+                          window.open(`${paths.saleUpdate}`, "_blank");
                         }}
                       >
                         Update
