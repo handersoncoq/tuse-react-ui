@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
 import { TuseClient } from "../../tuse-client/TuseClient";
 import Purchase from "./Purchase";
@@ -8,33 +8,32 @@ import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 
 const Buying = () => {
   const navigate = useNavigate();
+  const location = useLocation()
 
-  let symbol = localStorage.getItem("stockSymbol");
+  const searchParams = new URLSearchParams(location.search);
+  const symbol = searchParams.get("symbol");
   let [stock, setStock] = useState([]);
 
   useEffect(() => {
     const getStock = async () => {
-      if (localStorage.getItem("stockSymbol")) {
         try {
           const stock = await TuseClient.get(
-            `stock/${localStorage.getItem("stockSymbol")}`
+            `stock/${symbol}`
           );
           setStock(stock.data);
         } catch (error) {
           console.log(error);
         }
-      }
     };
     getStock();
-  }, [setStock]);
+  }, [setStock, symbol]);
 
   return (
     <>
       <div
         style={{ marginTop: "30.1px" }}
         onClick={() => {
-          localStorage.removeItem("stockSymbol");
-          navigate("/");
+        navigate("/");
         }}
       >
         <Header />

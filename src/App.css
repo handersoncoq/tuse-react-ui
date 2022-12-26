@@ -702,3 +702,60 @@ span:after {
   margin-top: 25px;
   text-align: center;
 }
+
+/* inbox */
+
+.message-envelope-card{
+  margin-top: 220px;
+  height: 201px;
+  width: 813px;
+  margin-left: 220px;
+  background-color: #bca085;
+  display: block;
+  overflow-y: scroll;
+}
+
+.message-header-card{
+  height: 45px;
+  width: 600px;
+  background-color: #8d6f53;
+  margin-top: 20px;
+  cursor: pointer;
+  justify-content: center;
+  margin-left: 105px;
+  margin-bottom: -10px;
+}
+
+.message-content{
+  width: 600px;
+  background-color: rgb(10, 11, 19);
+  margin-top: 15px;
+  cursor: pointer;
+  justify-content: center;
+  margin-left: 105px;
+  color: white;
+  border-color: white;
+  border: solid;
+  border-width: 0.1px;
+}
+
+.inbox-envelope-card{
+  margin-top: 140px;
+  height: 50px;
+  width: 812px;
+  margin-left: 222px;
+  background-color: #8d6f53;
+  position: fixed;
+}
+
+.inbox-header-typography{
+
+  margin-left: 350px;
+  margin-top: 15px;
+  position: fixed;
+  color: rgb(5, 51, 51);
+  font-size: 20px;
+  color: rgb(12, 12, 15)
+
+}
+

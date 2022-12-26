@@ -5,14 +5,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Card } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {FaFileInvoiceDollar} from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 
 const Sale = () => {
 
-    let clickedStockSymbol = localStorage.getItem("stockSymbol")
+  const location = useLocation()
+
+  const searchParams = new URLSearchParams(location.search);
+  const stockSymbol = searchParams.get("symbol");
 
     const [sale, setSale] = useState({
-            symbol: clickedStockSymbol,
+            symbol: stockSymbol,
             sellingPrice: 0,
             quantity: 0
     })

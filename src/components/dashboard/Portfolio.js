@@ -5,9 +5,13 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
+  const [isOpening, setIsOpening] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +24,17 @@ const Portfolio = () => {
     };
     fetchData();
   }, [setPortfolio]);
+
+  const handleClick = (path, symbol) => {
+    if (!isOpening) {
+      setIsOpening(true);
+      const newWindow = window.open(`${path}?symbol=${symbol}`, "_blank");
+      newWindow.addEventListener("load", () => {
+        navigate("/dashboard", { target: "blank" });
+        setIsOpening(false);
+      });
+    }
+  };
 
   return (
     <>
@@ -92,10 +107,7 @@ const Portfolio = () => {
                     <td style={{ textAlign: "center" }}>
                       <span
                         className="dashboardTrade"
-                        onClick={() => {
-                          localStorage.setItem("stockSymbol", stock.symbol);
-                          window.open(`${paths.trading}`, "_blank");
-                        }}
+                        onClick={() => handleClick(`${paths.trading}`, stock.symbol)}
                       >
                         Trade
                       </span>

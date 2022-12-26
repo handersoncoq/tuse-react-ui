@@ -11,4 +11,5 @@ export const paths = {
   stocks: "/stocks",
   saleUpdate: "/saleUpdate",
   about: "/about",
+  messageContent: "/msgContent"
 };

@@ -11,6 +11,7 @@ import Buying from "./components/trade-service/Buying";
 import Selling from "./components/trade-service/Selling";
 import Manage from "./components/user-service/Manage";
 import Inbox from "./inbox/Inbox";
+import MessageContent from "./inbox/MessageContent";
 import { paths } from "./endpoints/Endpoints";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -28,6 +29,7 @@ root.render(
         <Route path={paths.managing} element={<Manage />} />
         <Route path={paths.dashboard} element={<DashBoard />} />
         <Route path={paths.inbox} element={<Inbox />} />
+        <Route path={paths.messageContent} element={<MessageContent />} />
       </Routes>
     </Router>
   </React.StrictMode>

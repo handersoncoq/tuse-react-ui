@@ -9,11 +9,14 @@ import Navbar from "./Navbar";
 import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [stockList, setStockList] = useState([]);
 
   let numberFormatter = Intl.NumberFormat("en-US");
+  const navigate = useNavigate();
+  const [isOpening, setIsOpening] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,6 +64,17 @@ const Home = () => {
       console.log(result.data);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleClick = (path, symbol) => {
+    if (!isOpening) {
+      setIsOpening(true);
+      const newWindow = window.open(`${path}?symbol=${symbol}`, "_blank");
+      newWindow.addEventListener("load", () => {
+        navigate("/", { target: "blank" });
+        setIsOpening(false);
+      });
     }
   };
 
@@ -145,17 +159,13 @@ const Home = () => {
               <tr key={stock.stockId}>
                 <td
                   className="navigate"
-                  onClick={() =>
-                    window.open(`${paths.stocks}/${stock.symbol}`, "_blank")
-                  }
+                  onClick={()=>handleClick("/stocks", stock.symbol)}
                 >
                   {stock.company}
                 </td>
                 <td
                   className="navigate"
-                  onClick={() =>
-                    window.open(`${paths.stocks}/${stock.symbol}`, "_blank")
-                  }
+                  onClick={()=>handleClick("/stocks", stock.symbol)}
                 >
                   {stock.symbol}
                 </td>
@@ -173,19 +183,13 @@ const Home = () => {
                   <span style={{ fontSize: "10px" }}>
                     <span
                       className="tableButton"
-                      onClick={() => {
-                        localStorage.setItem("stockSymbol", stock.symbol);
-                        window.open(`${paths.buying}`, "_blank");
-                      }}
+                      onClick={()=>handleClick(`${paths.buying}`, stock.symbol)}
                     >
                       &nbsp;&nbsp;&nbsp; BUY &nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                     <span
                       className="tableButton"
-                      onClick={() => {
-                        localStorage.setItem("stockSymbol", stock.symbol);
-                        window.open(`${paths.selling}`, "_blank");
-                      }}
+                      onClick={()=>handleClick(`${paths.selling}`, stock.symbol)}
                     >
                       &nbsp;&nbsp;&nbsp; SELL &nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
