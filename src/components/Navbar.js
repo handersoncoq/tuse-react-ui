@@ -84,7 +84,7 @@ const Navbar = () => {
       {
         id: 4,
         path: paths.about,
-        text: "About TUSE",
+        text: "About TU$E",
         icon: <FcAbout />,
       },
     ];
@@ -138,10 +138,14 @@ const Navbar = () => {
               sx={{
                 width: 100,
                 height: 100,
-                backgroundColor: "#8f7358",
+                backgroundColor: "#0F101A",
                 marginLeft: "45px",
                 borderRadius: "50%",
                 marginBottom: "25px",
+                border: "solid",
+                borderColor: "white",
+                borderWidth: "0.7px",
+                borderStyle: "onset"
               }}
             >
               <img
@@ -195,7 +199,7 @@ const Navbar = () => {
                         height: "25px",
                         color: "darkred",
                         marginTop: "-23px",
-                        backgroundColor: "#8f7358",
+                        backgroundColor: "#0F101A",
                         textAlign: "center",
                       }}
                     >
@@ -272,7 +276,7 @@ const Navbar = () => {
                 style={{
                   height: "70px",
                   width: "22px",
-                  color: "rgb(15, 16, 26)",
+                  color: "#bca085",
                 }}
               />
             </a>
@@ -288,7 +292,7 @@ const Navbar = () => {
                 style={{
                   height: "70px",
                   width: "18px",
-                  color: "rgb(15, 16, 26)",
+                  color: "#bca085",
                 }}
               />
             </a>
@@ -304,7 +308,7 @@ const Navbar = () => {
                 style={{
                   height: "70px",
                   width: "20px",
-                  color: "rgb(15, 16, 26)",
+                  color: "#bca085",
                 }}
               />
             </a>

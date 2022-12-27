@@ -132,6 +132,10 @@ const Home = () => {
           marginLeft: "220px",
           backgroundColor: "#bca085",
           display: "block",
+          border: "solid",
+          borderColor: "white",
+          borderWidth: "0.7px",
+          borderStyle: "onset"
         }}
         component="div"
       >
@@ -141,6 +145,7 @@ const Home = () => {
             overflow: "auto",
             display: "block",
             marginLeft: "-3px",
+            backgroundColor: "rgb(21, 22, 27)"
           }}
         >
           <thead style={{ fontSize: "13.9px", textTransform: "uppercase" }}>

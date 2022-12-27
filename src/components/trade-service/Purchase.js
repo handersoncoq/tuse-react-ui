@@ -6,6 +6,7 @@ import { Card } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { MdSell } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import TextField from '@mui/material/TextField';
 
 const Purchase = () => {
 
@@ -43,7 +44,12 @@ const Purchase = () => {
           marginLeft: "190px",
           height: "200px",
           width: "550px",
-          backgroundColor: "#8d6f53",
+          backgroundColor: "rgb(21, 22, 27)",
+          border: "solid",
+          borderColor: "white",
+          borderWidth: "0.7px",
+          borderStyle: "onset",
+          borderRadius: "7px"
         }}
       >
         {" "}
@@ -51,17 +57,21 @@ const Purchase = () => {
           style={{
             marginLeft: "235px",
             marginTop: "15px",
+            color: "darkcyan"
           }}
         >
           PURCHASE {<MdSell />}
         </Typography>
         <div style={{ marginLeft: "-2px", marginTop: "40px" }}>
           <form className="trade-form" autoComplete="off">
-            <div className="trade-div ">
-              <label>Number of Shares</label>
-              <input
-                className="trade-input"
+              <TextField 
+                id="outlined-number" 
+                label="# of Shares" 
+                variant="filled"
                 type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={purchase.quantity}
                 onChange={(event) =>
                   setPurchase({
@@ -70,12 +80,14 @@ const Purchase = () => {
                   })
                 }
               />
-            </div>
-            <div className="trade-div ">
-              <label>Buying Price</label>
-              <input
-                className="trade-input"
+              <TextField
+                id="outlined-number" 
+                label="$ Bid" 
+                variant="filled"
                 type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={purchase.buyingPrice}
                 onChange={(event) =>
                   setPurchase({
@@ -84,10 +96,9 @@ const Purchase = () => {
                   })
                 }
               />
-            </div>
             <div>
               <button className="orderButton" onClick={handleSubmit}>
-                <Typography sx={{ fontSize: 16, color: "white" }}>
+                <Typography sx={{ fontSize: 16, color: "#0F101A", fontWeight: "bold", }}>
                   BUY
                 </Typography>
               </button>

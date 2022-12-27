@@ -54,15 +54,15 @@ const Buying = () => {
             justifyContent: "center",
             marginTop: "-60px",
             marginLeft: "65px",
-            backgroundColor: "white",
+            backgroundColor: "#8f7358",
             width: "100%",
             display: "flex",
             position: "fixed",
           }}
         >
           <span style={{ color: "rgb(10, 11, 19)" }}> Now Trading : </span>
-          <span style={{ color: "red" }}> {symbol} </span>
-          <span style={{ color: "red" }}>
+          <span style={{ color: "darkred" }}> {symbol} </span>
+          <span style={{ color: "darkred" }}>
             {" "}
             {"$ " +
               Math.ceil((stock.price + Number.EPSILON) * 1000) / 1000}{" "}
