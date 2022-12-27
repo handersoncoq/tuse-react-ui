@@ -27,14 +27,18 @@ const UserStocks = () => {
           width: 353,
           marginTop: "220px",
           marginLeft: "215px",
-          backgroundColor: "#bca085",
+          backgroundColor: "rgb(21, 22, 27)",
+          border: "solid",
+          borderColor: "white",
+          borderWidth: "0.7px",
+          borderStyle: "onset"
         }}
       >
         <CardContent>
           <Typography
             sx={{ fontSize: 14 }}
             align="center"
-            color="rgb(10, 11, 19)"
+            color="darkcyan"
             fontWeight="bold"
             gutterBottom
           >

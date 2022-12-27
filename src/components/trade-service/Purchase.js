@@ -70,7 +70,7 @@ const Purchase = () => {
                 variant="filled"
                 type="number"
                 InputLabelProps={{
-                  shrink: true,
+                  backgroundColor: "rgb(10, 11, 19)",
                 }}
                 value={purchase.quantity}
                 onChange={(event) =>

@@ -23,11 +23,11 @@ const SignOut = () =>{
             <div>
                 <span 
                 onClick={onClick}
-                style={{color: "rgb(15, 16, 26)", display: "float", marginLeft: "30px", cursor: "pointer", fontWeight: "normal"}}
+                style={{color: "#8d6f53", display: "float", marginLeft: "30px", cursor: "pointer", fontWeight: "normal"}}
                 ><span>
                     <FaSignOutAlt style={{color: "white", display: "float"}}/>
-                </span>
-                Sign Out
+                </span >
+                <span className="signOut">Sign Out</span>
                 </span>
             </div>
     )

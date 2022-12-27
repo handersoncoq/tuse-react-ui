@@ -390,6 +390,11 @@ a:hover {
   cursor: pointer;
 }
 
+.signOut:hover{
+  text-decoration: underline;
+  color: darkcyan;
+}
+
 /* #034545 */
 
 .menuNav {
@@ -467,11 +472,12 @@ a {
   justify-content: center;
   margin-left: -10px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .username:hover{
   text-decoration: underline;
-  color: #034545;
+  color: darkcyan;
 }
 
 /* table */
